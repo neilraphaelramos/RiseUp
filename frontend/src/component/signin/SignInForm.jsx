@@ -30,7 +30,9 @@ function SignInForm() {
                             <input className='txt-input' placeholder='Password' type='password' />
                         </div>
                         <div className='forget-pass'>
-                            <a className='forgetpass-link'>
+                            <a className='forgetpass-link'
+                            type='button'
+                            onClick={() => navigate('/forget-password')}>
                                 Forgot password?
                             </a>
                         </div>
