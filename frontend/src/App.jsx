@@ -6,6 +6,8 @@ import '../src/component/scss/styles.scss'
 import SignInForm from './component/signin/SignInForm';
 //Sign Up Form
 import SignUpForm from './component/signup/SignUpForm';
+//Dashboard
+import DashboardPage from './component/homepage/dashboard';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: '/registration',
     element: <SignUpForm />,
+  },
+  {
+    path:'/dashboard',
+    element: <DashboardPage />,
   },
 ]);
 

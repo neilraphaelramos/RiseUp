@@ -37,12 +37,15 @@ function SignInForm() {
                         <div className='formbutton'>
                             <button
                                 className='btn-input'
-                                type='button'>
+                                type='button'
+                                onClick={() => navigate('/dashboard')}>
                                 Login
                             </button>
                         </div>
                         <div className='guest-create'>
-                            <a className='asguest'>
+                            <a className='asguest'
+                            type='button'
+                            onClick={() => navigate('/dashboard')}>
                                 Sign in as Guest
                             </a>
                             <a className='createacc' onClick={() => navigate('/registration')}>

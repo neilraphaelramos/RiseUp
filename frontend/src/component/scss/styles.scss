@@ -300,4 +300,21 @@ $white-base: white;
             }
         }
     }
+
+    //Dashboard Design
+    .container-dashboard {
+        background-image: url('../../assets/images/backgrounds/HomePage BG.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 35% 50%;
+        position: relative;
+
+        .overlay-design {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    }
 }
