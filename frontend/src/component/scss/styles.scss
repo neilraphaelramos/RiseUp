@@ -1,0 +1,303 @@
+$base-color: #302E72;
+$hover-color-based: #21204e;
+$base-color2: #033074;
+$white-base: white;
+
+.app {
+
+    //Version Display Design
+    .version-display {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: $white-base;
+        margin: 0;
+        z-index: 2;
+    }
+
+    //Sign In Design
+    .container-login {
+        position: relative;
+        background-image: url('../../assets/images/backgrounds/Intro BG.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 35% 50%;
+
+        .formbox-login {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            .fillbox {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(2px);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 400px;
+                height: 550px;
+                border-radius: 30px;
+                padding: 10px;
+
+                .logo-title-container {
+                    width: 100%;
+                    height: 290px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    color: $white-base;
+
+                    .logo-img {
+                        height: 180px;
+                        width: auto;
+                    }
+
+                    h2 {
+                        margin: 0;
+                        font-size: 30pt;
+                        text-shadow: 2px 2px 10px #000000;
+                    }
+
+                    p {
+                        margin: 0;
+                        text-shadow: 2px 2px 10px #000000;
+                    }
+
+                }
+
+                .input-login {
+                    height: 250px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .formgroup-input {
+                        position: relative;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+
+                        .txt-input {
+                            width: 300px;
+                            height: 30px;
+                            border-radius: 10px;
+                            border: none;
+                            padding: 5px 10px 5px 35px;
+                            font-size: 12pt;
+                            color: gray;
+                            outline: none;
+                        }
+
+                        .groupicon {
+                            position: absolute;
+                            left: 10px;
+                            font-size: 18px;
+                            color: gray;
+                        }
+                    }
+
+                    .forget-pass {
+                        width: 100%;
+                        height: 20px;
+                        text-align: end;
+                        padding: 10px;
+                        margin-right: 50px;
+
+                        .forgetpass-link {
+                            font-size: 10pt;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .formbutton {
+                        width: 100%;
+                        height: 45px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .btn-input {
+                            width: 250px;
+                            height: 35px;
+                            border-radius: 5px;
+                            border: none;
+                            background-color: $base-color;
+                            color: $white-base;
+                            font-size: 12pt;
+                            font-weight: bold;
+                        }
+
+                        .btn-input:hover {
+                            background-color: $hover-color-based;
+                        }
+                    }
+
+                    .guest-create {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        padding: 10px;
+                        font-size: 10pt;
+
+                        .asguest {
+                            margin-left: 25px;
+                            cursor: pointer;
+                        }
+
+                        .createacc {
+                            margin-right: 25px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Sign Up Design
+    .container-register {
+        position: relative;
+        background-image: url('../../assets/images/backgrounds/Intro BG.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 35% 50%;
+
+        .formbox-register {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            .fillbox {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(2px);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 400px;
+                height: 575px;
+                border-radius: 30px;
+                padding: 10px;
+
+                .registration-tab {
+                    width: 100%;
+                    height: 120px;
+                    position: relative;
+                    background-color: $base-color2;
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.4);
+
+                    h2 {
+                        width: 100%;
+                        text-align: center;
+                        color: $white-base;
+                        margin: 0;
+                        font-size: 30pt;
+                        text-shadow: 0px 5px 2px rgba(0, 0, 0, 0.4);
+                    }
+
+                    .btn-back {
+                        color: $white-base;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 10px;
+                        font-size: 20pt;
+                        cursor: pointer;
+                    }
+
+                    .btn-back:hover {
+                        color: gray;
+                    }
+                }
+
+                .input-register {
+                    width: 100%;
+                    height: 410px;
+                    margin-top: 35px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    //background-color: aliceblue;
+
+                    .formgroup-input {
+                        position: relative;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+
+                        .txt-input {
+                            width: 300px;
+                            height: 30px;
+                            border-radius: 10px;
+                            border: none;
+                            font-size: 12pt;
+                            color: gray;
+                            outline: none;
+                            padding: 5px 10px 5px 10px;
+                        }
+
+                        .toggle-password {
+                            position: absolute;
+                            right: 5px;
+                            background: none;
+                            border: none;
+                            cursor: pointer;
+                            font-size: 20px;
+                            color: gray;
+                            margin-top: 6px;
+                        }
+                    }
+
+                    .checkboxgroup {
+                        font-size: 10pt;
+                        padding: 20px;
+                        display: flex;
+                        width: 100%;
+                        height: 20px;
+                        align-items: center;
+                        justify-content: center;
+
+                        label {
+                            padding-left: 10px;
+                        }
+                    }
+
+                    .formbutton {
+                        width: 100%;
+                        height: 45px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .btn-input {
+                            width: 250px;
+                            height: 35px;
+                            border-radius: 5px;
+                            border: none;
+                            background-color: $base-color;
+                            color: $white-base;
+                            font-size: 12pt;
+                            font-weight: bold;
+                        }
+
+                        .btn-input:hover {
+                            background-color: $hover-color-based;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
