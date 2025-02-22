@@ -5,8 +5,15 @@ function Recovery_Email() {
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate('/forget-password/verification-code')}>recovery-email
+    <div className='password-reset-container'>
+      <form className='form-email-box'>
+        <div onClick={() => navigate('/forget-password/verification-code')}>recovery-email
+        </div>
+      </form>
+      {/*<div onClick={() => navigate('/forget-password/verification-code')}>recovery-email
+      </div>*/}
     </div>
+
   )
 }
 

@@ -5,7 +5,11 @@ function Recovery_Code() {
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate('/forget-password/set-new-password')}>recovery-code</div>
+    <div className='password-reset-container'>
+      <form className='form-code-box'>
+        <div onClick={() => navigate('/forget-password/set-new-password')}>recovery-code</div>
+      </form>
+    </div>
   )
 }
 

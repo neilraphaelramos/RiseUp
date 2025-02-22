@@ -3,8 +3,10 @@ import { Outlet } from 'react-router-dom'
 
 function Reset_Pass_Main() {
   return (
-    <div>
-        <Outlet />
+    <div className='main-password-reset'>
+        <div className='overlay'>
+          <Outlet />
+        </div>
     </div>
   )
 }

@@ -5,7 +5,11 @@ function Recovery_NewPass() {
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate('/')}>recovery-newpass</div>
+    <div className='password-reset-container'>
+      <form className='form-newpass-box'>
+        <div onClick={() => navigate('/')}>recovery-newpass</div>
+      </form>
+    </div>
   )
 }
 
