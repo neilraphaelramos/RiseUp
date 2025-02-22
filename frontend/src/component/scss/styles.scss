@@ -405,11 +405,107 @@ $white-base: white;
             .form-email-box, 
             .form-code-box,
             .form-newpass-box {
+                position: relative;
                 width: 100%;
                 height: 300px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-direction: column;
+
+                .accrec-tab {
+                    position: relative;
+                    width: 100%;
+                    background-color: $base-color2;
+                    height: 100px;
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+
+                    h2 {
+                        color: $white-base;
+                        text-align: center;
+                        width: 100%;
+                        margin: 0;
+                        font-size: 22pt;
+                        text-shadow: 0px 5px 2px rgba(0, 0, 0, 0.4);
+                    }
+
+                    .btn-back {
+                        color: $white-base;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 10px;
+                        font-size: 20pt;
+                        cursor: pointer;
+                    }
+                }
+                
+                .btn-back:hover {
+                    color: gray;
+                }
+
+                h1 {
+                    font-size: 15pt;
+                    margin: 0;
+                    text-align: justify;
+                    height: 100px;
+                    padding: 25px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .formgroup-input {
+                    position: relative;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    margin-top: -25px;
+
+                    .txt-input {
+                        width: 300px;
+                        height: 30px;
+                        border-radius: 10px;
+                        border: none;
+                        padding: 5px 10px 5px 35px;
+                        font-size: 12pt;
+                        color: gray;
+                        outline: none;
+                    }
+
+                    .groupicon {
+                        position: absolute;
+                        left: 10px;
+                        font-size: 18px;
+                        color: gray;
+                    }
+                }
+
+                .formbutton {
+                    width: 100%;
+                    height: 45px;
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+
+                    .btn-input {
+                        width: 100px;
+                        height: 35px;
+                        border-radius: 10px;
+                        border: none;
+                        background-color: $base-color;
+                        color: $white-base;
+                        font-size: 12pt;
+                        font-weight: bold;
+                        margin-right: 20px;
+                    }
+
+                    .btn-input:hover {
+                        background-color: $hover-color-based;
+                    }
+                    
+                }
             }
         }
     }
