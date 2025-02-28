@@ -7,3 +7,4 @@
 4. Adding Reset Password(WIP)
 5. Designing the Reset Password and Layout of Dashboard(WIP)
 6. Reset Password Done
+7. Adding Contents & Sidebar(WIP)
