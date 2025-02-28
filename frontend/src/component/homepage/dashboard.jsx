@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import crosslogo from '../../assets/images/icons/cross.png'
 import { Outlet } from 'react-router-dom'
 
@@ -20,6 +20,14 @@ function DashboardPage() {
                     <div className='content-container'>
                         <Outlet />
                     </div>
+                </div>
+                <div className='sidebar-container'>
+                    <div className='Sidebar'>
+                        <div className='sidebar-header'>
+                            <p>Neil Lazaro</p>
+                        </div>
+                    </div>
+                    <div className='cover-sidebar'></div>
                 </div>
             </div>
         </div>

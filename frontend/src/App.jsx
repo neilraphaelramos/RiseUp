@@ -18,6 +18,7 @@ import Recovery_Email from './component/pages/account recovery/accrec-input/reco
 import Recovery_Code from './component/pages/account recovery/accrec-code/recovery-code';
 //Step 3 
 import Recovery_NewPass from './component/pages/account recovery/accrec-newpass/recovery-newpass';
+import Content_Dashboard from './component/pages/content/dash-content/content';
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,12 @@ const router = createBrowserRouter([
   {
     path:'/dashboard',
     element: <DashboardPage />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <Content_Dashboard />
+      }
+    ]
   },
   {
     path: '/forget-password',

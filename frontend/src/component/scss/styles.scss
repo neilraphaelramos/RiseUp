@@ -368,9 +368,192 @@ $white-base: white;
                 .content-container {
                     grid-area: article;
                     width: 100%;
+                    color: $white-base;
+
+                    .content-container {
+                        width: 100%;
+                        position: relative;
+                        height: 100%;
+
+                        .sub-container {
+                            position: absolute;
+                            width: 880px;
+                            height: 740px;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background-color: rgba(0, 0, 0, 0.3);
+                            backdrop-filter: blur(3px);
+                            border-radius: 20px;
+                            padding: 10px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            scrollbar-width: none;
+
+                            .scroll-container {
+                                width: 100%;
+                                height: 1520px;
+                                //background-color: wheat;
+                                display: block;
+
+                                .featured-container {
+                                    width: 700px;
+                                    height: 450px;
+                                    background-color: gray;
+                                    margin: 0 auto;
+                                    border-radius: 20px;
+                                    position: relative;
+                                    overflow-y: hidden;
+
+                                    .title-container {
+                                        background-color: rgb(57, 57, 57);
+                                        padding: 10px;
+
+                                        h1 {
+                                            margin: 0;
+                                            padding-left: 20px;
+                                        }
+                                    }
+
+                                    .featured-click-content {
+                                        width: 550px;
+                                        height: 300px;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -40%);
+                                        border-radius: 10px;
+                                        overflow-y: hidden;
+
+                                        img {
+                                            width: 100%;
+                                            height: auto;
+                                        }
+
+                                        p {
+                                            position: absolute;
+                                            top: 0;
+                                            z-index: 1;
+                                        }
+                                    }
+
+                                    .featured-click-content::after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background: rgba(0, 0, 0, 0.3);
+                                        /* Adjust overlay opacity */
+                                    }
+                                }
+
+                                .week-container {
+                                    margin-top: 20px;
+                                    //background-color: rgb(70, 56, 56);
+                                    width: 100%;
+                                    height: 900px;
+
+                                    h1 {
+                                        width: 100%;
+                                        margin: 0;
+                                        padding-left: 90px;
+                                        margin-bottom: 10px;
+                                    }
+
+                                    .ftweek-content {
+                                        width: 700px;
+                                        height: 1000px;
+                                        background-color: gray;
+                                        margin: 0 auto;
+                                        border-radius: 20px;
+                                        position: relative;
+                                        overflow-y: hidden;
+
+                                        .week-item {
+                                            width: 550px;
+                                            height: 300px;
+                                            border-radius: 10px;
+                                            overflow: hidden;
+                                            margin: 20px auto;
+                                            position: relative;
+
+                                            h2 {
+                                                margin: 0;
+                                                position: absolute;
+                                                top: 10px;
+                                                left: 0px;
+                                                z-index: 2;
+                                                color: white;
+                                            }
+
+                                            img {
+                                                width: 100%;
+                                                height: auto;
+                                                object-fit: cover;
+                                            }
+
+                                            p {
+                                                position: absolute;
+                                                bottom: 10px;
+                                                left: 10px;
+                                                z-index: 2;
+                                            }
+
+                                            &::after {
+                                                content: "";
+                                                position: absolute;
+                                                top: 0;
+                                                left: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                background: rgba(0, 0, 0, 0.3);
+                                            }
+                                        }
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
                 }
             }
 
+            .sidebar-container {
+
+                .cover-sidebar {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        width: 100%;
+                        height: 100%;
+                    }
+                
+                    .Sidebar {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        background-color: gray;
+                        width: 330px;
+                        z-index: 1;
+                        border-radius: 0 20px 20px 0;
+                        overflow: hidden;
+                        color: $white-base;
+
+                        .sidebar-header {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100px;
+                            background-color: $base-color2;
+                        }
+                    }
+            }
         }
     }
 
@@ -402,7 +585,7 @@ $white-base: white;
             border-radius: 30px;
             padding: 10px;
 
-            .form-email-box, 
+            .form-email-box,
             .form-code-box,
             .form-newpass-box {
                 position: relative;
@@ -441,7 +624,7 @@ $white-base: white;
                         cursor: pointer;
                     }
                 }
-                
+
                 .btn-back:hover {
                     color: gray;
                 }
@@ -504,7 +687,7 @@ $white-base: white;
                     .btn-input:hover {
                         background-color: $hover-color-based;
                     }
-                    
+
                 }
             }
         }
