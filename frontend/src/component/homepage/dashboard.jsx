@@ -47,7 +47,12 @@ function DashboardPage() {
                 <div className='sidebar-container'>
                     <div className='Sidebar' ref={sidebarRef}>
                         <div className='sidebar-header'>
-                            <p>Neil Lazaro</p>
+                            <div className='information-container'>
+                                <p>Information User</p>
+                            </div>
+                        </div>
+                        <div className='menu-sidebar'>
+                            Menu Selection
                         </div>
                     </div>
                     <div className='cover-sidebar' ref={coverSidebarRef} onClick={closeSidebar}></div>

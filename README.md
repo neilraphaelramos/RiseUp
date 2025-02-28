@@ -9,3 +9,4 @@
 6. Reset Password Done
 7. Adding Contents & Sidebar(WIP)
 8. Sidebar Function using useRef(Done, still WIP)
+9. Updating Sidebar design(WIP)
