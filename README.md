@@ -8,3 +8,4 @@
 5. Designing the Reset Password and Layout of Dashboard(WIP)
 6. Reset Password Done
 7. Adding Contents & Sidebar(WIP)
+8. Sidebar Function using useRef(Done, still WIP)
