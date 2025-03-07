@@ -1,0 +1,787 @@
+$base-color: #302E72;
+$hover-color-based: #21204e;
+$base-color2: #033074;
+$white-base: white;
+
+.app {
+
+    //Version Display Design
+    .version-display {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: $white-base;
+        margin: 0;
+        z-index: 2;
+    }
+
+    //Sign In Design
+    .container-login {
+        position: relative;
+        background-image: url('../../assets/images/backgrounds/Intro BG.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 35% 50%;
+
+        .formbox-login {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            .fillbox {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(2px);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 400px;
+                height: 550px;
+                border-radius: 30px;
+                padding: 10px;
+
+                .logo-title-container {
+                    width: 100%;
+                    height: 290px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    color: $white-base;
+
+                    .logo-img {
+                        height: 180px;
+                        width: auto;
+                    }
+
+                    h2 {
+                        margin: 0;
+                        font-size: 30pt;
+                        text-shadow: 2px 2px 10px #000000;
+                    }
+
+                    p {
+                        margin: 0;
+                        text-shadow: 2px 2px 10px #000000;
+                    }
+
+                }
+
+                .input-login {
+                    height: 280px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .formgroup-input {
+                        position: relative;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+
+                        .txt-input {
+                            width: 300px;
+                            height: 30px;
+                            border-radius: 10px;
+                            border: none;
+                            padding: 5px 10px 5px 35px;
+                            font-size: 12pt;
+                            color: gray;
+                            outline: none;
+                        }
+
+                        .groupicon {
+                            position: absolute;
+                            left: 10px;
+                            font-size: 18px;
+                            color: gray;
+                        }
+                    }
+
+                    .forget-pass {
+                        width: 100%;
+                        height: 20px;
+                        text-align: end;
+                        padding: 10px;
+                        margin-right: 50px;
+
+                        .forgetpass-link {
+                            font-size: 10pt;
+                            cursor: pointer;
+                        }
+
+                        .forgetpass-link:hover {
+                            color: $hover-color-based;
+                        }
+                    }
+
+                    .formbutton {
+                        width: 100%;
+                        height: 45px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .btn-input {
+                            width: 250px;
+                            height: 35px;
+                            border-radius: 5px;
+                            border: none;
+                            background-color: $base-color;
+                            color: $white-base;
+                            font-size: 12pt;
+                            font-weight: bold;
+                        }
+
+                        .btn-input:hover {
+                            background-color: $hover-color-based;
+                        }
+                    }
+
+                    .guest-create {
+                        display: flex;
+                        //justify-content: space-between;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        padding: 10px;
+                        font-size: 10pt;
+
+                        .asguest {
+                            transition: all 0.3s ease-in-out;
+                            padding: 5px;
+                            cursor: pointer;
+
+                            .account-guest-icon {
+                                font-size: 24pt;
+                            }
+                        }
+
+                        .signwithgoogle {
+                            transition: all 0.3s ease-in-out;
+                            padding: 5px;
+                            cursor: pointer;
+
+                            .account-google-icon {
+                                font-size: 24pt;
+                            }
+                        }
+
+                        .createacc {
+                            transition: all 0.3s ease-in-out;
+                            padding: 5px;
+                            cursor: pointer;
+
+                            .create-account-icon {
+                                font-size: 24pt;
+                            }
+                        }
+
+                        .signwithgoogle:hover,
+                        .createacc:hover,
+                        .asguest:hover {
+                            color: $hover-color-based;
+                            filter: drop-shadow(0px 4px 6px rgba(255, 255, 255, 0.5));
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Sign Up Design
+    .container-register {
+        position: relative;
+        background-image: url('../../assets/images/backgrounds/Intro BG.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 35% 50%;
+
+        .formbox-register {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            .fillbox {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(2px);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 400px;
+                height: 575px;
+                border-radius: 30px;
+                padding: 10px;
+
+                .registration-tab {
+                    width: 100%;
+                    height: 120px;
+                    position: relative;
+                    background-color: $base-color2;
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.4);
+
+                    h2 {
+                        width: 100%;
+                        text-align: center;
+                        color: $white-base;
+                        margin: 0;
+                        font-size: 30pt;
+                        text-shadow: 0px 5px 2px rgba(0, 0, 0, 0.4);
+                    }
+
+                    .btn-back {
+                        color: $white-base;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 10px;
+                        font-size: 20pt;
+                        cursor: pointer;
+                    }
+
+                    .btn-back:hover {
+                        color: gray;
+                    }
+                }
+
+                .input-register {
+                    width: 100%;
+                    height: 410px;
+                    margin-top: 35px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    //background-color: aliceblue;
+
+                    .formgroup-input {
+                        position: relative;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+
+                        .txt-input {
+                            width: 300px;
+                            height: 30px;
+                            border-radius: 10px;
+                            border: none;
+                            font-size: 12pt;
+                            color: gray;
+                            outline: none;
+                            padding: 5px 10px 5px 10px;
+                        }
+
+                        .toggle-password {
+                            position: absolute;
+                            right: 5px;
+                            background: none;
+                            border: none;
+                            cursor: pointer;
+                            font-size: 20px;
+                            color: gray;
+                            margin-top: 6px;
+                        }
+                    }
+
+                    .checkboxgroup {
+                        font-size: 10pt;
+                        padding: 20px;
+                        display: flex;
+                        width: 100%;
+                        height: 20px;
+                        align-items: center;
+                        justify-content: center;
+
+                        label {
+                            padding-left: 10px;
+                        }
+                    }
+
+                    .formbutton {
+                        width: 100%;
+                        height: 45px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .btn-input {
+                            width: 250px;
+                            height: 35px;
+                            border-radius: 5px;
+                            border: none;
+                            background-color: $base-color;
+                            color: $white-base;
+                            font-size: 12pt;
+                            font-weight: bold;
+                        }
+
+                        .btn-input:hover {
+                            background-color: $hover-color-based;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Dashboard Design
+    .container-dashboard {
+        background-image: url('../../assets/images/backgrounds/HomePage BG.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 35% 50%;
+        position: relative;
+
+        .overlay-design {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+
+            .grid-container {
+                display: grid;
+                grid-template-areas:
+                    "header"
+                    "article";
+                grid-template-rows: 90px auto;
+                width: 100%;
+                height: 100vh;
+
+                .navbar-container {
+                    grid-area: header;
+                    background-color: $base-color2;
+                    width: 100%;
+                    height: 70px;
+                    padding: 10px 0;
+
+                    .logo-title-container {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                        height: 70px;
+
+                        h2 {
+                            display: flex;
+                            align-items: center;
+                            font-size: 2.6rem;
+                            position: relative;
+                            color: $white-base;
+                            margin: 0;
+                        }
+
+                        .logo-img {
+                            height: 60px;
+                            width: auto;
+                            position: relative;
+                            padding: 10px;
+                        }
+
+                        p {
+                            margin-top: -5px;
+                            font-size: 0.85rem;
+                            color: $white-base;
+                            font-weight: bold;
+                        }
+
+                        .btn-group {
+                            position: absolute;
+                            left: 0;
+                            width: 80px;
+                            height: 80px;
+                            display: grid;
+                            place-items: center;
+
+                            .sidebar-toggle {
+                                width: 70px;
+                                height: 60px;
+                                border: none;
+                                border-radius: 10px;
+                                background-color: $base-color2;
+
+                                .icon {
+                                    color: $white-base;
+                                    font-size: 40pt;
+                                    text-align: center;
+                                }
+                            }
+
+                            .sidebar-toggle:hover {
+                                background-color: $hover-color-based;
+                            }
+                        }
+                    }
+                }
+
+                .content-container {
+                    grid-area: article;
+                    width: 100%;
+                    color: $white-base;
+
+                    .content-container {
+                        width: 100%;
+                        position: relative;
+                        height: 100%;
+
+                        .sub-container {
+                            position: absolute;
+                            width: 880px;
+                            height: 740px;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background-color: rgba(0, 0, 0, 0.3);
+                            backdrop-filter: blur(3px);
+                            border-radius: 20px;
+                            padding: 10px;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            scrollbar-width: none;
+
+                            .scroll-container {
+                                width: 100%;
+                                height: 1520px;
+                                //background-color: wheat;
+                                display: block;
+
+                                .featured-container {
+                                    width: 700px;
+                                    height: 450px;
+                                    background-color: gray;
+                                    margin: 0 auto;
+                                    border-radius: 20px;
+                                    position: relative;
+                                    overflow-y: hidden;
+
+                                    .title-container {
+                                        background-color: rgb(57, 57, 57);
+                                        padding: 10px;
+
+                                        h1 {
+                                            margin: 0;
+                                            padding-left: 20px;
+                                        }
+                                    }
+
+                                    .featured-click-content {
+                                        width: 550px;
+                                        height: 300px;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -40%);
+                                        border-radius: 10px;
+                                        overflow-y: hidden;
+
+                                        img {
+                                            width: 100%;
+                                            height: auto;
+                                        }
+
+                                        p {
+                                            position: absolute;
+                                            top: 0;
+                                            z-index: 1;
+                                        }
+                                    }
+
+                                    .featured-click-content::after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background: rgba(0, 0, 0, 0.3);
+                                        /* Adjust overlay opacity */
+                                    }
+                                }
+
+                                .week-container {
+                                    margin-top: 20px;
+                                    //background-color: rgb(70, 56, 56);
+                                    width: 100%;
+                                    height: 900px;
+
+                                    h1 {
+                                        width: 100%;
+                                        margin: 0;
+                                        padding-left: 90px;
+                                        margin-bottom: 10px;
+                                    }
+
+                                    .ftweek-content {
+                                        width: 700px;
+                                        height: 1000px;
+                                        background-color: gray;
+                                        margin: 0 auto;
+                                        border-radius: 20px;
+                                        position: relative;
+                                        overflow-y: hidden;
+
+                                        .week-item {
+                                            width: 550px;
+                                            height: 300px;
+                                            border-radius: 10px;
+                                            overflow: hidden;
+                                            margin: 20px auto;
+                                            position: relative;
+
+                                            h2 {
+                                                margin: 0;
+                                                position: absolute;
+                                                top: 10px;
+                                                left: 0px;
+                                                z-index: 2;
+                                                color: white;
+                                            }
+
+                                            img {
+                                                width: 100%;
+                                                height: auto;
+                                                object-fit: cover;
+                                            }
+
+                                            p {
+                                                position: absolute;
+                                                bottom: 10px;
+                                                left: 10px;
+                                                z-index: 2;
+                                            }
+
+                                            &::after {
+                                                content: "";
+                                                position: absolute;
+                                                top: 0;
+                                                left: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                background: rgba(0, 0, 0, 0.3);
+                                            }
+                                        }
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sidebar-container {
+
+                .cover-sidebar {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(0, 0, 0, 0.3);
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+                }
+
+                .cover-sidebar.visible {
+                    display: block;
+                }
+
+                .Sidebar {
+                    position: fixed;
+                    top: 0;
+                    left: -330px;
+                    height: 100%;
+                    background-color: gray;
+                    width: 330px;
+                    z-index: 1;
+                    border-radius: 0 20px 20px 0;
+                    overflow: hidden;
+                    color: $white-base;
+                    transition: 0.3s ease-in-out;
+
+                    .sidebar-header {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100px;
+                        background-color: $base-color2;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .information-container {
+                            //background-color: gray;
+                            width: 300px;
+                            height: 70px;
+                            position: relative;
+
+                            p {
+                                margin: 0;
+                            }
+                        }
+                    }
+
+                    .menu-sidebar {
+                        position: absolute;
+                        top: 100px;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgb(79, 79, 79);
+                    }
+                }
+
+                .Sidebar.active {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    //Reset Password Design
+    .main-password-reset {
+        position: relative;
+        background-image: url('../../assets/images/backgrounds/Intro BG.jpg');
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 35% 50%;
+
+        .overlay {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5)
+        }
+
+        .password-reset-container {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(2px);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 300px;
+            border-radius: 30px;
+            padding: 10px;
+
+            .form-email-box,
+            .form-message-box {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .accrec-tab {
+                    position: relative;
+                    width: 100%;
+                    background-color: $base-color2;
+                    height: 100px;
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+
+                    h2 {
+                        color: $white-base;
+                        text-align: center;
+                        width: 100%;
+                        margin: 0;
+                        font-size: 22pt;
+                        text-shadow: 0px 5px 2px rgba(0, 0, 0, 0.4);
+                    }
+
+                    .btn-back {
+                        color: $white-base;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 10px;
+                        font-size: 20pt;
+                        cursor: pointer;
+                    }
+                }
+
+                .btn-back:hover {
+                    color: gray;
+                }
+
+                h1 {
+                    font-size: 15pt;
+                    margin: 0;
+                    text-align: justify;
+                    height: 100px;
+                    padding: 25px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .formgroup-input {
+                    position: relative;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    margin-top: -25px;
+
+                    .txt-input {
+                        width: 300px;
+                        height: 30px;
+                        border-radius: 10px;
+                        border: none;
+                        padding: 5px 10px 5px 35px;
+                        font-size: 12pt;
+                        color: gray;
+                        outline: none;
+                    }
+
+                    .groupicon {
+                        position: absolute;
+                        left: 10px;
+                        font-size: 18px;
+                        color: gray;
+                    }
+                }
+
+                .formbutton {
+                    width: 100%;
+                    height: 45px;
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+
+                    .btn-input {
+                        width: 100px;
+                        height: 35px;
+                        border-radius: 10px;
+                        border: none;
+                        background-color: $base-color;
+                        color: $white-base;
+                        font-size: 12pt;
+                        font-weight: bold;
+                        margin-right: 20px;
+                    }
+
+                    .btn-input:hover {
+                        background-color: $hover-color-based;
+                    }
+
+                }
+            }
+        }
+    }
+}
