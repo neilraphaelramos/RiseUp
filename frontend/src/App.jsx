@@ -15,10 +15,12 @@ import Reset_Pass_Main from './component/pages/account recovery/reset-pass-main'
 //Step 1
 import Recovery_Email from './component/pages/account recovery/accrec-input/recovery-email';
 //Step 2
-import Recovery_Code from './component/pages/account recovery/accrec-code/recovery-code';
-//Step 3 
-import Recovery_NewPass from './component/pages/account recovery/accrec-newpass/recovery-newpass';
+import Recovery_Message from './component/pages/account recovery/accrec-message/recovery-message';
+
 import Content_Dashboard from './component/pages/content/dash-content/content';
+import Dashboard_Form from './component/pages/content/dash-content/contend-for-today/dashboard-form';
+import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
+
 
 
 const router = createBrowserRouter([
@@ -37,7 +39,11 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Content_Dashboard />
-      }
+      },
+      {
+        path: '/dashboard/for-today',
+        element: <Dashboard_Form />
+      },
     ]
   },
   {
@@ -49,12 +55,8 @@ const router = createBrowserRouter([
         element: <Recovery_Email />,
       },
       {
-        path: '/forget-password/verification-code',
-        element: <Recovery_Code />,
-      },
-      {
-        path: '/forget-password/set-new-password',
-        element: <Recovery_NewPass />,
+        path: '/forget-password/verification-message',
+        element: <Recovery_Message />,
       },
     ],
   },

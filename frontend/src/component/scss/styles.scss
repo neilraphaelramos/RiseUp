@@ -71,7 +71,7 @@ $white-base: white;
                 }
 
                 .input-login {
-                    height: 250px;
+                    height: 280px;
                     width: 100%;
                     display: flex;
                     flex-direction: column;
@@ -113,6 +113,10 @@ $white-base: white;
                             font-size: 10pt;
                             cursor: pointer;
                         }
+
+                        .forgetpass-link:hover {
+                            color: $hover-color-based;
+                        }
                     }
 
                     .formbutton {
@@ -140,20 +144,49 @@ $white-base: white;
 
                     .guest-create {
                         display: flex;
-                        justify-content: space-between;
+                        //justify-content: space-between;
+                        justify-content: center;
                         align-items: center;
                         width: 100%;
                         padding: 10px;
                         font-size: 10pt;
 
                         .asguest {
-                            margin-left: 25px;
+                            transition: all 0.3s ease-in-out;
+                            padding: 5px;
                             cursor: pointer;
+
+                            .account-guest-icon {
+                                font-size: 24pt;
+                            }
+                        }
+
+                        .signwithgoogle {
+                            transition: all 0.3s ease-in-out;
+                            padding: 5px;
+                            cursor: pointer;
+
+                            .account-google-icon {
+                                font-size: 24pt;
+                            }
                         }
 
                         .createacc {
-                            margin-right: 25px;
+                            transition: all 0.3s ease-in-out;
+                            padding: 5px;
                             cursor: pointer;
+
+                            .create-account-icon {
+                                font-size: 24pt;
+                            }
+                        }
+
+                        .signwithgoogle:hover,
+                        .createacc:hover,
+                        .asguest:hover {
+                            color: $hover-color-based;
+                            filter: drop-shadow(0px 4px 6px rgba(255, 255, 255, 0.5));
+                            transform: scale(1.1);
                         }
                     }
                 }
@@ -377,7 +410,7 @@ $white-base: white;
                                 border: none;
                                 border-radius: 10px;
                                 background-color: $base-color2;
-                                
+
                                 .icon {
                                     color: $white-base;
                                     font-size: 40pt;
@@ -607,6 +640,35 @@ $white-base: white;
                         width: 100%;
                         height: 100%;
                         background-color: rgb(79, 79, 79);
+
+                        .group-btn-selection {
+                            width: 100%;
+                            height: 50px;
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            .btn-selection-input {
+                                width: 100%;
+                                height: 50px;
+                                color: white;
+                                background-color: rgb(79, 79, 79);
+                                outline: none;
+                                border: none;
+                                font-size: 18pt;
+                                text-align: left;
+
+                                .icon-group {
+                                    padding-right: 5px;
+                                }
+                            }
+
+                            .btn-selection-input:hover {
+                                background-color: rgb(57, 57, 57);
+                            }
+
+                        }
                     }
                 }
 
@@ -646,8 +708,7 @@ $white-base: white;
             padding: 10px;
 
             .form-email-box,
-            .form-code-box,
-            .form-newpass-box {
+            .form-message-box {
                 position: relative;
                 width: 100%;
                 height: 300px;

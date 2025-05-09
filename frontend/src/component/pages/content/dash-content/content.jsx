@@ -1,3 +1,4 @@
+
 import React from 'react'
 import bgimgae from '../../../../assets/images/backgrounds/HomePage BG.jpg'
 import { useNavigate } from 'react-router-dom'
@@ -33,7 +34,7 @@ function Content_Dashboard() {
                         <div className='title-container'>
                             <h1>Featured</h1>
                         </div>
-                        <div className='featured-click-content' onClick={() => navigate('/')}>
+                        <div className='featured-click-content' onClick={() => navigate('/dashboard/for-today')}>
                             <img src={bgimgae}/>
                             <p>{featuredScripture.text}</p>
                         </div>

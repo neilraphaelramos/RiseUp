@@ -1,11 +1,29 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import crosslogo from '../../assets/images/icons/cross.png'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { IoMenu } from "react-icons/io5";
+import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { authUser } from '../../../backend/config/firebase';
+import { MdDashboard, MdNotifications, MdHistory, MdEdit} from 'react-icons/md';
+import { FaUserCircle } from 'react-icons/fa';
 
 function DashboardPage() {
     const sidebarRef = useRef(null);
     const coverSidebarRef = useRef(null);
+    const navigate = useNavigate();
+    const [authinfo, setAuthInfo] = useState("");
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(authUser, (user) => {
+            if (user) {
+                setAuthInfo(user.email);
+            } else {
+                setAuthInfo("");
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     const togglesidebar = () => {
         if (sidebarRef.current && coverSidebarRef.current) {
@@ -18,6 +36,15 @@ function DashboardPage() {
         if (sidebarRef.current && coverSidebarRef.current) {
             sidebarRef.current.classList.toggle('active');
             coverSidebarRef.current.classList.toggle('visible');
+        }
+    }
+
+    const handleLogout = async () => {
+        try {
+            await signOut(authUser);
+            navigate("/");
+        } catch (err) {
+            console.error("Logout Error: ", err.message);
         }
     }
 
@@ -48,11 +75,30 @@ function DashboardPage() {
                     <div className='Sidebar' ref={sidebarRef}>
                         <div className='sidebar-header'>
                             <div className='information-container'>
+                                <FaUserCircle />
                                 <p>Information User</p>
+                                <p>{authinfo || "No user logged in"}</p>
+                                <button
+                                    onClick={handleLogout}>
+                                    Logout
+                                </button>
                             </div>
                         </div>
                         <div className='menu-sidebar'>
-                            Menu Selection
+                            <div>
+                                <div className='group-btn-selection'>
+                                    <button type='button' className='btn-selection-input'> <MdDashboard className='icon-group' />Dashboard </button>
+                                </div>
+                                <div className='group-btn-selection'>
+                                    <button type='button' className='btn-selection-input'> <MdNotifications className='icon-group' />Notification </button>
+                                </div>
+                                <div className='group-btn-selection'>
+                                    <button type='button' className='btn-selection-input'> <MdHistory className='icon-group' />Activity Logs </button>
+                                </div>
+                                <div className='group-btn-selection'>
+                                    <button type='button' className='btn-selection-input'> <MdEdit className='icon-group' />Profile </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='cover-sidebar' ref={coverSidebarRef} onClick={closeSidebar}></div>
