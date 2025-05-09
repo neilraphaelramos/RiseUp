@@ -4,21 +4,33 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import { IoMenu } from "react-icons/io5";
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { authUser } from '../../../backend/config/firebase';
-import { MdDashboard, MdNotifications, MdHistory, MdEdit} from 'react-icons/md';
+import { MdDashboard, MdNotifications, MdHistory, MdEdit } from 'react-icons/md';
 import { FaUserCircle } from 'react-icons/fa';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../../backend/config/firebase';
 
 function DashboardPage() {
     const sidebarRef = useRef(null);
     const coverSidebarRef = useRef(null);
     const navigate = useNavigate();
     const [authinfo, setAuthInfo] = useState("");
+    const [fullName, setFullName] = useState("");
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(authUser, (user) => {
+        const unsubscribe = onAuthStateChanged(authUser, async (user) => {
             if (user) {
                 setAuthInfo(user.email);
+
+                const docRef = doc(db, "users_info", user.uid);
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    setFullName(userData.fullname);
+                    console.log(userData.fullname);
+                }
             } else {
                 setAuthInfo("");
+                setFullName("");
             }
         });
 
@@ -62,7 +74,7 @@ function DashboardPage() {
                             </p>
                             <div className='btn-group'>
                                 <button className='sidebar-toggle' onClick={togglesidebar}>
-                                    <IoMenu className='icon'/>
+                                    <IoMenu className='icon' />
                                 </button>
                             </div>
                         </div>
@@ -75,11 +87,14 @@ function DashboardPage() {
                     <div className='Sidebar' ref={sidebarRef}>
                         <div className='sidebar-header'>
                             <div className='information-container'>
-                                <FaUserCircle />
-                                <p>Information User</p>
-                                <p>{authinfo || "No user logged in"}</p>
-                                <button
-                                    onClick={handleLogout}>
+                                <div className='user-details'>
+                                    <FaUserCircle className='pp-icon' />
+                                    <div className='text-info'>
+                                        <p className='fullname-display'><strong>{fullName || "Guest"}</strong></p>
+                                        <p className='account-display'>{authinfo || "No user logged in"}</p>
+                                    </div>
+                                </div>
+                                <button className='logout-btn' onClick={handleLogout}>
                                     Logout
                                 </button>
                             </div>
