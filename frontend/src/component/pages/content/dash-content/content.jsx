@@ -30,27 +30,7 @@ function Content_Dashboard() {
         <div className='content-container'>
             <div className='sub-container'>
                 <div className='scroll-container'>
-                    <div className='featured-container'>
-                        <div className='title-container'>
-                            <h1>Featured</h1>
-                        </div>
-                        <div className='featured-click-content' onClick={() => navigate('/dashboard/for-today')}>
-                            <img src={bgimgae}/>
-                            <p>{featuredScripture.text}</p>
-                        </div>
-                    </div>
-                    <div className='week-container'>
-                        <h1>Scriptures for the week</h1>
-                        <div className='ftweek-content'>
-                            {weekScriptures.map((scriptures, index) => (
-                                <div key={index} className='week-item' onClick={() => navigate('/')}>
-                                    <img src={bgimgae}/>
-                                    <h2>{scriptures.day}</h2>
-                                    <p>{scriptures.text}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>

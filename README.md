@@ -11,3 +11,4 @@
 8. Sidebar Function using useRef(Done, still WIP)
 9. Updating Sidebar design(WIP)
 10. Updating New Code and Redesigining Sidebar
+11. Removing Content on Dashboard
