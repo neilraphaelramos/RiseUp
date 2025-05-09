@@ -4,7 +4,7 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import { IoMenu } from "react-icons/io5";
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { authUser } from '../../../backend/config/firebase';
-import { MdDashboard, MdNotifications, MdHistory, MdEdit } from 'react-icons/md';
+import { MdDashboard, MdNotifications, MdHistory, MdEdit, MdVideoLibrary, MdSettings } from 'react-icons/md';
 import { FaUserCircle } from 'react-icons/fa';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../backend/config/firebase';
@@ -112,6 +112,12 @@ function DashboardPage() {
                                 </div>
                                 <div className='group-btn-selection'>
                                     <button type='button' className='btn-selection-input'> <MdEdit className='icon-group' />Profile </button>
+                                </div>
+                                <div className='group-btn-selection'>
+                                    <button type='button' className='btn-selection-input'> <MdVideoLibrary className='icon-group' />Recorded Mass </button>
+                                </div>
+                                <div className='group-btn-selection'>
+                                    <button type='button' className='btn-selection-input'> <MdSettings className='icon-group' />Settings </button>
                                 </div>
                             </div>
                         </div>
