@@ -684,6 +684,54 @@ $white-base: white;
                 }
             }
 
+            .settings-container {
+                position: absolute;
+                top: 0;
+                z-index: 1000;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                pointer-events: none;
+
+                .settings-subcontainer {
+                    background-color: #ffffff;
+                    border-radius: 12px;
+                    padding: 1rem 1.5rem;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    width: 800px;
+                    height: 500px;
+                    pointer-events: auto;
+                    opacity: 0;
+                    transform: translateY(-10px);
+                    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+                    visibility: hidden;
+
+                }
+
+                &.active .settings-subcontainer {
+                    opacity: 1;
+                    transform: translateY(0);
+                    visibility: visible;
+                }
+
+                .cover-settings {
+                    position: fixed;
+                    inset: 0;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    pointer-events: auto;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+                    &.visible {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
         }
     }
 

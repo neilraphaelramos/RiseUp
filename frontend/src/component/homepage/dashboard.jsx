@@ -14,6 +14,8 @@ function DashboardPage() {
     const coverSidebarRef = useRef(null);
     const profileRef = useRef(null);
     const coverProfileRef = useRef(null);
+    const settingsRef = useRef(null);
+    const coverSettingsRef = useRef(null);
     const navigate = useNavigate();
     const [authinfo, setAuthInfo] = useState("");
     const [fullName, setFullName] = useState("");
@@ -54,6 +56,14 @@ function DashboardPage() {
         }
     }
 
+    const togglesettings = () => {
+        if (coverProfileRef.current && profileRef.current) {
+            profileRef.current?.classList.toggle("active");
+            coverProfileRef.current?.classList.toggle("visible");
+
+        }
+    }
+
     const closeSidebar = () => {
         if (sidebarRef.current && coverSidebarRef.current) {
             sidebarRef.current.classList.toggle('active');
@@ -62,6 +72,13 @@ function DashboardPage() {
     }
 
     const closeProfile = () => {
+        if (coverProfileRef.current && profileRef.current) {
+            profileRef.current?.classList.toggle("active");
+            coverProfileRef.current?.classList.toggle("visible");
+        }
+    }
+
+    const closeSettings = () => {
         if (coverProfileRef.current && profileRef.current) {
             profileRef.current?.classList.toggle("active");
             coverProfileRef.current?.classList.toggle("visible");
@@ -119,7 +136,7 @@ function DashboardPage() {
                         <div className='menu-sidebar'>
                             <div>
                                 <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input'> <MdDashboard className='icon-group' />Dashboard </button>
+                                    <button type='button' className='btn-selection-input' onClick={() => {navigate('/dashboard'); closeSidebar();}}> <MdDashboard className='icon-group' />Dashboard </button>
                                 </div>
                                 <div className='group-btn-selection'>
                                     <button type='button' className='btn-selection-input'> <MdNotifications className='icon-group' />Notification </button>
@@ -134,7 +151,7 @@ function DashboardPage() {
                                     <button type='button' className='btn-selection-input'> <MdVideoLibrary className='icon-group' />Recorded Mass </button>
                                 </div>
                                 <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input'> <MdSettings className='icon-group' />Settings </button>
+                                    <button type='button' className='btn-selection-input' onClick={() => {togglesettings(); closeSidebar();}}> <MdSettings className='icon-group' />Settings </button>
                                 </div>
                             </div>
                         </div>
@@ -146,6 +163,12 @@ function DashboardPage() {
 
                     </div>
                     <div className='cover-profile' ref={coverProfileRef} onClick={closeProfile}></div>
+                </div>
+                <div className='settings-container' ref={settingsRef}>
+                    <div className='settings-subcontainer'>
+
+                    </div>
+                    <div className='cover-settings' ref={coverSettingsRef} onClick={closeSettings}></div>
                 </div>
             </div>
         </div>
