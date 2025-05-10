@@ -139,16 +139,16 @@ function DashboardPage() {
                                     <button type='button' className='btn-selection-input' onClick={() => {navigate('/dashboard'); closeSidebar();}}> <MdDashboard className='icon-group' />Dashboard </button>
                                 </div>
                                 <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input'> <MdNotifications className='icon-group' />Notification </button>
+                                    <button type='button' className='btn-selection-input' onClick={() => {closeSidebar();}}> <MdNotifications className='icon-group' />Notification </button>
                                 </div>
                                 <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input'> <MdHistory className='icon-group' />Activity Logs </button>
+                                    <button type='button' className='btn-selection-input' onClick={() => {closeSidebar();}}> <MdHistory className='icon-group' />Activity Logs </button>
                                 </div>
                                 <div className='group-btn-selection'>
                                     <button type='button' className='btn-selection-input' onClick={() => {toggleprofile(); closeSidebar();}}> <MdEdit className='icon-group' />Profile </button>
                                 </div>
                                 <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input'> <MdVideoLibrary className='icon-group' />Recorded Mass </button>
+                                    <button type='button' className='btn-selection-input'onClick={() => {closeSidebar();}}> <MdVideoLibrary className='icon-group' />Recorded Mass </button>
                                 </div>
                                 <div className='group-btn-selection'>
                                     <button type='button' className='btn-selection-input' onClick={() => {togglesettings(); closeSidebar();}}> <MdSettings className='icon-group' />Settings </button>
