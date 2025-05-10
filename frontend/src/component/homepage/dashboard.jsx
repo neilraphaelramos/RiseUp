@@ -12,6 +12,8 @@ import { db } from '../../../backend/config/firebase';
 function DashboardPage() {
     const sidebarRef = useRef(null);
     const coverSidebarRef = useRef(null);
+    const profileRef = useRef(null);
+    const coverProfileRef = useRef(null);
     const navigate = useNavigate();
     const [authinfo, setAuthInfo] = useState("");
     const [fullName, setFullName] = useState("");
@@ -44,10 +46,25 @@ function DashboardPage() {
         }
     }
 
+    const toggleprofile = () => {
+        if (coverProfileRef.current && profileRef.current) {
+            profileRef.current?.classList.toggle("active");
+            coverProfileRef.current?.classList.toggle("visible");
+
+        }
+    }
+
     const closeSidebar = () => {
         if (sidebarRef.current && coverSidebarRef.current) {
             sidebarRef.current.classList.toggle('active');
             coverSidebarRef.current.classList.toggle('visible');
+        }
+    }
+
+    const closeProfile = () => {
+        if (coverProfileRef.current && profileRef.current) {
+            profileRef.current?.classList.toggle("active");
+            coverProfileRef.current?.classList.toggle("visible");
         }
     }
 
@@ -111,7 +128,7 @@ function DashboardPage() {
                                     <button type='button' className='btn-selection-input'> <MdHistory className='icon-group' />Activity Logs </button>
                                 </div>
                                 <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input'> <MdEdit className='icon-group' />Profile </button>
+                                    <button type='button' className='btn-selection-input' onClick={() => {toggleprofile(); closeSidebar();}}> <MdEdit className='icon-group' />Profile </button>
                                 </div>
                                 <div className='group-btn-selection'>
                                     <button type='button' className='btn-selection-input'> <MdVideoLibrary className='icon-group' />Recorded Mass </button>
@@ -123,6 +140,12 @@ function DashboardPage() {
                         </div>
                     </div>
                     <div className='cover-sidebar' ref={coverSidebarRef} onClick={closeSidebar}></div>
+                </div>
+                <div className='profile-container' ref={profileRef}>
+                    <div className='profile-subcontainer-infoform'>
+
+                    </div>
+                    <div className='cover-profile' ref={coverProfileRef} onClick={closeProfile}></div>
                 </div>
             </div>
         </div>
