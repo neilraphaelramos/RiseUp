@@ -58,8 +58,8 @@ function DashboardPage() {
 
     const togglesettings = () => {
         if (coverProfileRef.current && profileRef.current) {
-            profileRef.current?.classList.toggle("active");
-            coverProfileRef.current?.classList.toggle("visible");
+            settingsRef.current?.classList.toggle("active");
+            coverSettingsRef.current?.classList.toggle("visible");
 
         }
     }
@@ -80,8 +80,8 @@ function DashboardPage() {
 
     const closeSettings = () => {
         if (coverProfileRef.current && profileRef.current) {
-            profileRef.current?.classList.toggle("active");
-            coverProfileRef.current?.classList.toggle("visible");
+            settingsRef.current?.classList.toggle("active");
+            coverSettingsRef.current?.classList.toggle("visible");
         }
     }
 
@@ -160,7 +160,12 @@ function DashboardPage() {
                 </div>
                 <div className='profile-container' ref={profileRef}>
                     <div className='profile-subcontainer-infoform'>
-
+                        <div className='profile-details'>
+                            <h2 className='title-profile'>
+                                Profile Management
+                            </h2>
+                            
+                        </div>
                     </div>
                     <div className='cover-profile' ref={coverProfileRef} onClick={closeProfile}></div>
                 </div>
