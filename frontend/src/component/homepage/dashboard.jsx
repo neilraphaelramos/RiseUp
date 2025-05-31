@@ -144,15 +144,11 @@ function DashboardPage() {
                                 <div className='group-btn-selection'>
                                     <button type='button' className='btn-selection-input' onClick={() => {closeSidebar();}}> <MdHistory className='icon-group' />Activity Logs </button>
                                 </div>
-                                <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input' onClick={() => {toggleprofile(); closeSidebar();}}> <MdEdit className='icon-group' />Profile </button>
-                                </div>
+                                
                                 <div className='group-btn-selection'>
                                     <button type='button' className='btn-selection-input'onClick={() => {closeSidebar();}}> <MdVideoLibrary className='icon-group' />Recorded Mass </button>
                                 </div>
-                                <div className='group-btn-selection'>
-                                    <button type='button' className='btn-selection-input' onClick={() => {togglesettings(); closeSidebar();}}> <MdSettings className='icon-group' />Settings </button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
