@@ -10,13 +10,13 @@
 
 .adn-container header {
     grid-area: header;
-    background-color: #88cfff;
+    background-color: #033074;
     padding: 1rem;
 }
 
 .adn-container aside {
     grid-area: sidebar;
-    background-color: #e2f4ff;
+    background-color: #4f7ab5;
     padding: 1rem;
 }
 
@@ -24,10 +24,12 @@
     grid-area: article;
     background-color: #fff;
     padding: 1rem;
+    overflow: auto;
 }
 
 .adn-text {
     margin: 0;
+    color: white;
 }
 
 .logo-img {
@@ -52,16 +54,16 @@
     align-items: center;
     gap: 8px;
     padding: 12px 16px;
-    background-color: #c7d7e0;
+    background-color: #406394;
     border-radius: 8px;
     cursor: pointer;
     font-size: 14pt;
-    color: #333;
+    color: #ffffff;
     transition: background-color 0.2s, color 0.2s;
 }
 
 .btn-select:hover {
-    background-color: #acdefb;
+    background-color: #4b82d4;
     color: #ffffff;
 }
 

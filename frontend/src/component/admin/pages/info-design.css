@@ -1,0 +1,160 @@
+.adn-status-container {
+  width: 100%;
+}
+
+.adn-head-subcontainer {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.adn-group-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.adn-box-data {
+  flex: 1 1 250px;
+  background-color: #e9e9e9;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.adn-box-data:hover {
+  transform: translateY(-4px);
+}
+
+.adn-title-info {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.adn-number-info {
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .adn-box-data {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 480px) {
+  .adn-box-data {
+    flex: 1 1 100%;
+  }
+}
+
+.adn-status-report-data {
+  max-width: 900px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 15px;
+}
+
+.adm-table-reflection {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: white;
+  cursor: pointer;
+}
+
+.adm-table-reflection thead {
+  background-color: #1c63ce;
+  color: white;
+}
+
+.adm-table-reflection th,
+.adm-table-reflection td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.adm-table-reflection tbody tr:nth-child(odd) {
+  background-color: #f3f4f6;
+}
+
+@media (max-width: 600px) {
+  .adm-table-reflection {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.adn-graph-report-DA {
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  height: 300px;
+  width: 100%;
+  max-width: 900px;
+}
+
+
+@media (max-width: 600px) {
+  .adn-graph-report-DA {
+    height: 250px;
+    padding: 15px;
+  }
+}
+
+
+.adn-title-text {
+  font-size: 1.6rem;        
+  font-weight: 600;        
+  color: #1c63ce;            
+  margin-bottom: 15px;        
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.03em;     
+  border-left: 4px solid #1c63ce; 
+  padding-left: 10px;         
+  user-select: none;         
+  transition: color 0.3s ease;
+  margin-top: 20px;
+}
+
+.adn-title-text:hover {
+  color: #3730a3;          
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .adn-title-text {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+}
+
+.adn-view-btn {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  background-color: #2821ac;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.adn-view-btn:hover {
+  background-color: #3b2ef5;
+}
+
+@media (max-width: 600px) {
+  .adn-view-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,96 @@
+.adn-user-management {
+    font-family: Arial, sans-serif;
+}
+
+.adn-user-management-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.adn-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.adn-user-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.adn-user-table th,
+.adn-user-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.adn-user-table th {
+    background-color: #f4f4f4;
+}
+
+.adn-delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.adn-delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.adn-edit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.adn-edit-btn:hover {
+    background-color: #2980b9;
+}
+
+.adn-table-btn-group {
+    display: flex;
+}
+
+.adn-edit-btn,
+.adn-delete-btn {
+    margin: 5px;
+}
+
+.adn-icon-title-btn {
+    font-size: 20pt;
+    padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .adn-user-table {
+        font-size: 14px;
+        min-width: unset;
+    }
+
+    .adn-user-table th,
+    .adn-user-table td {
+        padding: 10px;
+    }
+
+    .adn-user-management-title {
+        font-size: 20px;
+    }
+
+    .adn-edit-btn,
+    .adn-delete-btn {
+        font-size: 13px;
+        padding: 5px 10px;
+        margin-right: 6px;
+    }
+}

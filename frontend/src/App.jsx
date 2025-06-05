@@ -21,6 +21,10 @@ import Content_Dashboard from './component/pages/content/dash-content/content';
 import Dashboard_Form from './component/pages/content/dash-content/contend-for-today/dashboard-form';
 import ReflectionForToday from './component/pages/content/reflection/reflection';
 import DashboardAdmin from './component/admin/dashboardadmin';
+import InfoStatus from './component/admin/pages/infointro';
+import UserManagement from './component/admin/pages/usermanage/user-management';
+import ReflectionManagement from './component/admin/pages/reflectmanage/reflection-management';
+import ActivityManagement from './component/admin/pages/activitymanage/activity-management';
 
 //import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
 
@@ -58,9 +62,21 @@ const router = createBrowserRouter([
     element: <DashboardAdmin />,
     children: [
       {
-        path: '',
-        element: <d />,
-      }
+        path: '/admin-dashboard',
+        element: <InfoStatus />,
+      },
+      {
+        path: '/admin-dashboard/user-manager',
+        element: <UserManagement />,
+      },
+      {
+        path: '/admin-dashboard/reflection-manager',
+        element: <ReflectionManagement />,
+      },
+      {
+        path: '/admin-dashboard/activity-manager',
+        element: <ActivityManagement />,
+      },
     ]
   },
   {

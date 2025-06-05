@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import crosslogo from './../../assets/images/icons/cross.png'
 import { TfiEmail } from "react-icons/tfi";
 import { CiLock, CiMail } from "react-icons/ci";
@@ -7,7 +7,7 @@ import { RiAccountCircleLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, signInWithPopup, sendPasswordResetEmail } from 'firebase/auth';
 import { authUser, googleProvider, db } from '../../../backend/config/firebase';
-import { setDoc, doc, getDoc } from 'firebase/firestore';
+import { setDoc, doc, getDoc, serverTimestamp } from 'firebase/firestore';
 
 function SignInForm() {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ function SignInForm() {
         setIsLogin(true);
 
         try {
-            const usercredentials = await signInWithEmailAndPassword(authUser, email, password)
+            const usercredentials = await signInWithEmailAndPassword(authUser, email, password);
             const user = usercredentials.user;
 
             const userDocRef = doc(db, "users_info", user.uid);
@@ -34,15 +34,32 @@ function SignInForm() {
                 const userData = userSnapshot.data();
                 const role = userData.role;
 
+                // ✅ Mark as online
+                await setDoc(userDocRef, {
+                    isOnline: true,
+                    lastActive: serverTimestamp()
+                }, { merge: true });
+
+                // ✅ Set offline on tab close/refresh
+                window.addEventListener('beforeunload', () => {
+                    setDoc(userDocRef, {
+                        isOnline: false
+                    }, { merge: true });
+                });
+
+                // ✅ Navigate based on role
                 if (role === "admin") {
                     navigate("/admin-dashboard");
                 } else if (role === "client") {
                     navigate("/dashboard");
-                } 
+                } else {
+                    console.warn("Unknown user role:", role);
+                }
+
             } else {
-                console.error("No user document found!");
-                // Optional: handle missing user doc
+                console.error("No user document found in Firestore!");
             }
+
         } catch (err) {
             setIsLogin(false);
             setPassword("");
@@ -70,28 +87,45 @@ function SignInForm() {
     //sigin with google
     const handleLoginWithGoogle = async () => {
         try {
-            const usergooglecredentials = await signInWithPopup(authUser, googleProvider);
-            const userdata = usergooglecredentials.user;
-            const googleusername = userdata.email.split('@')[0];
-            const googlename = userdata.email.split('@')[0];
-            const userRef = doc(db, "users_info", userdata.uid);
+            const userGoogleCredentials = await signInWithPopup(authUser, googleProvider);
+            const user = userGoogleCredentials.user;
+            const username = user.email.split('@')[0];
+            const fullname = username;
+            const userRef = doc(db, "users_info", user.uid);
             const userSnap = await getDoc(userRef);
 
             if (!userSnap.exists()) {
+                // First-time login: create user doc
                 await setDoc(userRef, {
-                    email: userdata.email,
-                    username: googleusername,
-                    fullname: googlename,
+                    email: user.email,
+                    username: username,
+                    fullname: fullname,
                     municipality: null,
                     parish: null,
-                    createdAt: new Date(),
+                    createdAt: serverTimestamp(),
                     year: null,
                     section: null,
                     role: 'client',
+                    isOnline: true,
+                    lastActive: serverTimestamp()
                 });
+            } else {
+                // Existing user: update status
+                await setDoc(userRef, {
+                    isOnline: true,
+                    lastActive: serverTimestamp()
+                }, { merge: true });
             }
 
+            // Handle tab close/logout
+            window.addEventListener('beforeunload', () => {
+                setDoc(userRef, {
+                    isOnline: false
+                }, { merge: true });
+            });
+
             navigate('/dashboard');
+
         } catch (err) {
             console.error("Google Sign-In Error: ", err.message);
         }

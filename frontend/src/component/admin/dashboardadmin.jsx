@@ -6,8 +6,11 @@ import { FaUsers } from "react-icons/fa6";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { FiActivity } from "react-icons/fi";
 import { Outlet, useNavigate } from 'react-router-dom';
+import { IoIosSettings } from "react-icons/io";
 
 function DashboardAdmin() {
+    const navigate = useNavigate();
+
     return (
         <>
             <div className="adn-container">
@@ -21,29 +24,34 @@ function DashboardAdmin() {
                 <aside>
                     <div className='adn-selector-container'>
                         <div className='adn-gp-btn-select'>
-                            <div className='btn-select'>
+                            <div className='btn-select' onClick={() => navigate('/admin-dashboard')}>
                                 <MdDashboard className='adn-icon-btn'/> Dashboard
                             </div>
                         </div>
                         <div className='adn-gp-btn-select'>
-                            <div className='btn-select'>
+                            <div className='btn-select' onClick={() => navigate('/admin-dashboard/user-manager')}>
                                 <FaUsers className='adn-icon-btn'/> User Management
                             </div>
                         </div>
                         <div className='adn-gp-btn-select'>
-                            <div className='btn-select'>
+                            <div className='btn-select' onClick={() => navigate('/admin-dashboard/reflection-manager')}>
                                 <IoNewspaperSharp className='adn-icon-btn'/> Reflection Management
                             </div>
                         </div>
-                        <div className='adn-gp-btn-select'>
+                        <div className='adn-gp-btn-select' onClick={() => navigate('/admin-dashboard/activity-manager')}>
                             <div className='btn-select'>
                                 <FiActivity className='adn-icon-btn'/> Actvity Management
+                            </div>
+                        </div>
+                        <div className='adn-gp-btn-select' onClick={() => navigate('')}>
+                            <div className='btn-select'>
+                                <IoIosSettings className='adn-icon-btn'/> Settings
                             </div>
                         </div>
                     </div>
                 </aside>
                 <article>
-                    info
+                    <Outlet/>
                 </article>
             </div>
         </>

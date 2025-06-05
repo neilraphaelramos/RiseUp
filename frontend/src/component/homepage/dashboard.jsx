@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import crosslogo from '../../assets/images/icons/cross.png';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { IoMenu } from 'react-icons/io5';
@@ -11,7 +11,7 @@ import {
     MdVideoLibrary
 } from 'react-icons/md';
 import { FaUserCircle } from 'react-icons/fa';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../../../backend/config/firebase';
 
 function DashboardPage() {
@@ -107,7 +107,21 @@ function DashboardPage() {
 
     const handleLogout = async () => {
         try {
+            const user = authUser.currentUser;
+
+            if (user) {
+                const userDocRef = doc(db, "users_info", user.uid);
+
+                // 🔴 Mark user as offline
+                await setDoc(userDocRef, {
+                    isOnline: false
+                }, { merge: true });
+            }
+
+            // 🔐 Sign out from Firebase Auth
             await signOut(authUser);
+
+            // 🔁 Redirect
             navigate('/');
         } catch (err) {
             console.error('Logout Error: ', err.message);

@@ -3,7 +3,7 @@ import { IoChevronBack, IoEyeOutline, IoEyeSharp } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { db, authUser } from '../../../backend/config/firebase';
-import { setDoc, doc } from 'firebase/firestore';
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore';
 //import { useDebounce } from '../hooks/useDebounce/useDebounce';
 
 function SignUpForm() {
@@ -69,6 +69,8 @@ function SignUpForm() {
                     year: null,
                     section: null,
                     role: 'client',
+                    isOnline: true,
+                    lastActive: serverTimestamp(),
                 });
 
                 navigate("/dashboard");
