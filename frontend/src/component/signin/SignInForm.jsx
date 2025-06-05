@@ -34,23 +34,22 @@ function SignInForm() {
                 const userData = userSnapshot.data();
                 const role = userData.role;
 
-                // ✅ Mark as online
-                await setDoc(userDocRef, {
-                    isOnline: true,
-                    lastActive: serverTimestamp()
-                }, { merge: true });
+                localStorage.setItem('userRole', role);
 
-                // ✅ Set offline on tab close/refresh
-                window.addEventListener('beforeunload', () => {
-                    setDoc(userDocRef, {
-                        isOnline: false
-                    }, { merge: true });
-                });
-
-                // ✅ Navigate based on role
                 if (role === "admin") {
                     navigate("/admin-dashboard");
                 } else if (role === "client") {
+                    await setDoc(userDocRef, {
+                        isOnline: true,
+                        lastActive: serverTimestamp()
+                    }, { merge: true });
+
+                    // ✅ Set offline on tab close/refresh
+                    window.addEventListener('beforeunload', () => {
+                        setDoc(userDocRef, {
+                            isOnline: false
+                        }, { merge: true });
+                    });
                     navigate("/dashboard");
                 } else {
                     console.warn("Unknown user role:", role);
@@ -92,10 +91,10 @@ function SignInForm() {
             const username = user.email.split('@')[0];
             const fullname = username;
             const userRef = doc(db, "users_info", user.uid);
-            const userSnap = await getDoc(userRef);
+            let userSnap = await getDoc(userRef);
 
             if (!userSnap.exists()) {
-                // First-time login: create user doc
+
                 await setDoc(userRef, {
                     email: user.email,
                     username: username,
@@ -110,12 +109,17 @@ function SignInForm() {
                     lastActive: serverTimestamp()
                 });
             } else {
-                // Existing user: update status
                 await setDoc(userRef, {
                     isOnline: true,
                     lastActive: serverTimestamp()
                 }, { merge: true });
             }
+
+            userSnap = await getDoc(userRef);
+            const userData = userSnap.data();
+            const role = userData.role;
+
+            localStorage.setItem('userRole', role);
 
             // Handle tab close/logout
             window.addEventListener('beforeunload', () => {
@@ -124,7 +128,12 @@ function SignInForm() {
                 }, { merge: true });
             });
 
-            navigate('/dashboard');
+            // ✅ Navigate based on role
+            if (role === 'admin') {
+                navigate('/admin-dashboard');
+            } else {
+                navigate('/dashboard');
+            }
 
         } catch (err) {
             console.error("Google Sign-In Error: ", err.message);

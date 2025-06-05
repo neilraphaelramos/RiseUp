@@ -1,0 +1,81 @@
+.admin-settings {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.settings-title {
+  font-size: 28px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section h3 {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.settings-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.settings-item label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.settings-item input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.settings-btn,
+.logout-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0077ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.settings-btn:hover,
+.logout-btn:hover {
+  background-color: #005fcc;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .admin-settings {
+    padding: 1rem;
+  }
+
+  .settings-title {
+    font-size: 22px;
+  }
+
+  .settings-section h3 {
+    font-size: 18px;
+  }
+
+  .settings-btn,
+  .logout-btn {
+    width: 100%;
+  }
+}

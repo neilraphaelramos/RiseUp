@@ -25,6 +25,7 @@ import InfoStatus from './component/admin/pages/infointro';
 import UserManagement from './component/admin/pages/usermanage/user-management';
 import ReflectionManagement from './component/admin/pages/reflectmanage/reflection-management';
 import ActivityManagement from './component/admin/pages/activitymanage/activity-management';
+import SettingAdmin from './component/admin/settings/settingadmin';
 
 //import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
 
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: '/admin-dashboard/activity-manager',
         element: <ActivityManagement />,
+      },
+      {
+        path: '/admin-dashboard/settings',
+        element: <SettingAdmin />,
       },
     ]
   },

@@ -72,7 +72,7 @@ function SignUpForm() {
                     isOnline: true,
                     lastActive: serverTimestamp(),
                 });
-
+                localStorage.setItem('userRole', 'client');
                 navigate("/dashboard");
 
             } catch (err) {

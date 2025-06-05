@@ -28,6 +28,16 @@ function DashboardPage() {
     const [verseText, setVerseText] = useState('');
 
     useEffect(() => {
+        const role = localStorage.getItem('userRole');
+
+        if (!role) {
+            navigate('/');
+        } else if (role !== 'client') {
+            navigate('/admin-dashboard');
+        };
+    }, [navigate]);
+
+    useEffect(() => {
         const unsubscribe = onAuthStateChanged(authUser, async (user) => {
             if (user) {
                 setAuthInfo(user.email);
@@ -122,6 +132,7 @@ function DashboardPage() {
             await signOut(authUser);
 
             // 🔁 Redirect
+            localStorage.removeItem('userRole');
             navigate('/');
         } catch (err) {
             console.error('Logout Error: ', err.message);
