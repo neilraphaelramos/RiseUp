@@ -354,8 +354,9 @@ $white-base: white;
                 display: grid;
                 grid-template-areas:
                     "header"
+                    "welcome"
                     "article";
-                grid-template-rows: 90px auto;
+                grid-template-rows: 70px 50px auto; // adjusted for navbar + welcome + content
                 width: 100%;
                 height: 100vh;
 
@@ -416,13 +417,67 @@ $white-base: white;
                                     color: $white-base;
                                     font-size: 40pt;
                                     text-align: center;
-                                    display: block
+                                    display: block;
                                 }
                             }
 
                             .sidebar-toggle:hover {
                                 background-color: $hover-color-based;
                             }
+                        }
+
+                        @media (max-width: 600px) {
+                            h2 {
+                                font-size: 2.2rem;
+                            }
+
+                            .logo-img {
+                                height: 50px;
+                                width: auto;
+                            }
+
+                            p {
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+                }
+
+                // New welcome-date bar area
+                .welcome-date-bar {
+                    grid-area: welcome;
+                    position: sticky;
+                    top: 78px; // below navbar
+                    //z-index: 10;
+                    background-color: $base-color2; // reuse your base color
+                    color: $white-base;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+                    user-select: none;
+
+                    .welcome-message {
+                        font-size: 1.1rem;
+                        letter-spacing: 0.03em;
+                    }
+
+                    .current-date {
+                        font-style: italic;
+                        font-size: 0.95rem;
+                        opacity: 0.85;
+                    }
+
+                    @media (max-width: 600px) {
+                        .welcome-message {
+                            font-size: 0.9rem;
+                        }
+
+                        .current-date {
+                            font-size: 0.8rem;
                         }
                     }
                 }
@@ -431,6 +486,12 @@ $white-base: white;
                     grid-area: article;
                     width: 100%;
                     color: $white-base;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    scrollbar-width: none;
 
                     .content-container {
                         width: 100%;
@@ -457,8 +518,6 @@ $white-base: white;
                                 height: 1520px;
                                 //background-color: wheat;
                                 display: block;
-
-
                             }
                         }
                     }
@@ -466,7 +525,6 @@ $white-base: white;
             }
 
             .sidebar-container {
-
                 .cover-sidebar {
                     position: absolute;
                     top: 0;
@@ -562,7 +620,6 @@ $white-base: white;
                         .logout-btn:hover {
                             background-color: #c9302c;
                         }
-
                     }
 
                     .menu-sidebar {
@@ -600,7 +657,6 @@ $white-base: white;
                             .btn-selection-input:hover {
                                 background-color: rgb(57, 57, 57);
                             }
-
                         }
                     }
                 }
@@ -654,85 +710,28 @@ $white-base: white;
                         padding: 0.5rem;
                         border-radius: 8px;
                         cursor: pointer;
-                        transition: background-color 0.2s ease;
+                        font-weight: 600;
 
                         &:hover {
-                            background-color: #e64444;
+                            background-color: #e04444;
                         }
                     }
                 }
 
-                &.active .profile-subcontainer-infoform {
+                .profile-subcontainer-infoform.active {
                     opacity: 1;
-                    transform: translateY(0);
                     visibility: visible;
-                }
-
-                .cover-profile {
-                    position: fixed;
-                    inset: 0;
-                    background-color: rgba(0, 0, 0, 0.4);
-                    pointer-events: auto;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: opacity 0.3s ease, visibility 0.3s ease;
-
-                    &.visible {
-                        opacity: 1;
-                        visibility: visible;
-                    }
+                    transform: translateY(0);
                 }
             }
-
-            .settings-container {
-                position: absolute;
-                top: 0;
-                z-index: 1000;
-                width: 100%;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                pointer-events: none;
-
-                .settings-subcontainer {
-                    background-color: #ffffff;
-                    border-radius: 12px;
-                    padding: 1rem 1.5rem;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                    width: 800px;
-                    height: 500px;
-                    pointer-events: auto;
-                    opacity: 0;
-                    transform: translateY(-10px);
-                    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-                    visibility: hidden;
-
-                }
-
-                &.active .settings-subcontainer {
-                    opacity: 1;
-                    transform: translateY(0);
-                    visibility: visible;
-                }
-
-                .cover-settings {
-                    position: fixed;
-                    inset: 0;
-                    background-color: rgba(0, 0, 0, 0.4);
-                    pointer-events: auto;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: opacity 0.3s ease, visibility 0.3s ease;
-
-                    &.visible {
-                        opacity: 1;
-                        visibility: visible;
-                    }
-                }
-            }
-
         }
+    }
+
+    // Video 
+    .video-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
     }
 
     //Reset Password Design
@@ -868,5 +867,135 @@ $white-base: white;
                 }
             }
         }
+    }
+}
+
+// Notification Button 
+/* Ensure navbar is positioned relative so the notification button can be absolutely placed */
+.navbar-container {
+    position: relative;
+}
+
+/* Notification button styling */
+.notification-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    /* adjust horizontal offset as needed */
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $white-base;
+    /* replace with your actual text‐color variable or hex code */
+    font-size: 28px;
+    /* size of the bell icon */
+    cursor: pointer;
+    padding: 4px;
+
+    .notif-icon {
+        vertical-align: middle;
+    }
+
+    &:hover {
+        color: $hover-color-based;
+        /* replace with your hover‐color variable or hex code */
+    }
+}
+
+// Bible Verse 
+/* ─── NOTIFICATION BUTTON ───────────────────────────────────────────────────── */
+.navbar-container {
+    position: relative;
+    /* so the notification button can be absolutely placed */
+}
+
+.notification-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $white-base;
+    /* replace or ensure this is defined */
+    font-size: 28px;
+    cursor: pointer;
+    padding: 4px;
+
+    .notif-icon {
+        vertical-align: middle;
+    }
+
+    &:hover {
+        color: $hover-color-based;
+        /* replace or ensure this is defined */
+    }
+}
+
+/* ─── VERSE OF THE DAY ───────────────────────────────────────────────────────── */
+/* ─── NOTIFICATION BUTTON ───────────────────────────────────────────────────── */
+.navbar-container {
+    position: relative;
+    /* allows notification button to be absolutely positioned inside */
+}
+
+.notification-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $white-base;
+    /* replace if needed */
+    font-size: 28px;
+    cursor: pointer;
+    padding: 4px;
+
+    .notif-icon {
+        vertical-align: middle;
+    }
+
+    &:hover {
+        color: $hover-color-based;
+        /* replace if needed */
+    }
+}
+
+/* ─── WELCOME & DATE BAR ───────────────────────────────────────────────────── */
+
+/* ─── VIDEO WRAPPER ────────────────────────────────────────────────────────── */
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+    iframe {
+        max-width: 100%;
+    }
+}
+
+/* ─── VERSE OF THE DAY ───────────────────────────────────────────────────────── */
+.verse-of-the-day {
+    margin: 20px auto;
+    /* centers and gives vertical spacing */
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    .verse-ref {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .verse-text {
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: justify;
     }
 }

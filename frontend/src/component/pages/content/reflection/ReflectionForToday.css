@@ -1,0 +1,117 @@
+.rft-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  color: black;
+}
+
+.rft-form {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.rft-heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.rft-group {
+  margin-bottom: 20px;
+}
+
+.rft-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rft-half {
+  flex: 1 1 200px;
+}
+
+.rft-input,
+.rft-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.rft-textarea {
+  resize: vertical;
+  max-height: 300px;
+}
+
+.rft-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rft-check {
+  font-size: 16px;
+  color: black;
+}
+
+.rft-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rft-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rft-back {
+  background-color: #eee;
+}
+
+.rft-back:hover {
+  background-color: #ddd;
+}
+
+.rft-submit {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.rft-submit:hover {
+  background-color: #45A049;
+}
+
+@media (max-width: 500px) {
+  .rft-row {
+    flex-direction: column;
+  }
+
+  .rft-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .rft-row {
+    flex-direction: column;
+  }
+
+  .rft-half {
+    width: 100%;
+    flex: none;
+    resize: none;
+  }
+}

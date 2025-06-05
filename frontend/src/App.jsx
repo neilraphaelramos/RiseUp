@@ -19,7 +19,8 @@ import Recovery_Message from './component/pages/account recovery/accrec-message/
 
 import Content_Dashboard from './component/pages/content/dash-content/content';
 import Dashboard_Form from './component/pages/content/dash-content/contend-for-today/dashboard-form';
-import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
+import ReflectionForToday from './component/pages/content/reflection/reflection';
+//import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
 
 
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/for-today',
         element: <Dashboard_Form />
+      },
+      {
+        path: '/dashboard/reflection-for-today',
+        element: <ReflectionForToday />
       },
     ]
   },
