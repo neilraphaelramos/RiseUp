@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import '../src/component/scss/styles.scss'
 
@@ -20,6 +20,8 @@ import Recovery_Message from './component/pages/account recovery/accrec-message/
 import Content_Dashboard from './component/pages/content/dash-content/content';
 import Dashboard_Form from './component/pages/content/dash-content/contend-for-today/dashboard-form';
 import ReflectionForToday from './component/pages/content/reflection/reflection';
+import DashboardAdmin from './component/admin/dashboardadmin';
+
 //import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
 
 
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
     element: <SignUpForm />,
   },
   {
-    path:'/dashboard',
+    path: '/dashboard',
     element: <DashboardPage />,
     children: [
       {
@@ -49,6 +51,16 @@ const router = createBrowserRouter([
         path: '/dashboard/reflection-for-today',
         element: <ReflectionForToday />
       },
+    ]
+  },
+  {
+    path: '/admin-dashboard',
+    element: <DashboardAdmin />,
+    children: [
+      {
+        path: '',
+        element: <d />,
+      }
     ]
   },
   {
@@ -71,7 +83,7 @@ function App() {
   return (
     <>
       <div className='app'>
-        <p className='version-display'>RiseUp Version 0.1 – In Developmental Stage</p>
+        <p className='version-display'>RiseUp Version 0.5 – In Developmental Stage</p>
         <RouterProvider router={router} />
       </div>
     </>

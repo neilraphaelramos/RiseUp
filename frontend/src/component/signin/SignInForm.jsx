@@ -24,8 +24,25 @@ function SignInForm() {
         setIsLogin(true);
 
         try {
-            await signInWithEmailAndPassword(authUser, email, password);
-            navigate('/dashboard');
+            const usercredentials = await signInWithEmailAndPassword(authUser, email, password)
+            const user = usercredentials.user;
+
+            const userDocRef = doc(db, "users_info", user.uid);
+            const userSnapshot = await getDoc(userDocRef);
+
+            if (userSnapshot.exists()) {
+                const userData = userSnapshot.data();
+                const role = userData.role;
+
+                if (role === "admin") {
+                    navigate("/admin-dashboard");
+                } else if (role === "client") {
+                    navigate("/dashboard");
+                } 
+            } else {
+                console.error("No user document found!");
+                // Optional: handle missing user doc
+            }
         } catch (err) {
             setIsLogin(false);
             setPassword("");
@@ -57,7 +74,6 @@ function SignInForm() {
             const userdata = usergooglecredentials.user;
             const googleusername = userdata.email.split('@')[0];
             const googlename = userdata.email.split('@')[0];
-
             const userRef = doc(db, "users_info", userdata.uid);
             const userSnap = await getDoc(userRef);
 
@@ -69,6 +85,9 @@ function SignInForm() {
                     municipality: null,
                     parish: null,
                     createdAt: new Date(),
+                    year: null,
+                    section: null,
+                    role: 'client',
                 });
             }
 

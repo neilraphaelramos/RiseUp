@@ -66,6 +66,9 @@ function SignUpForm() {
                     municipality: null,
                     parish: null,
                     createdAt: new Date(),
+                    year: null,
+                    section: null,
+                    role: 'client',
                 });
 
                 navigate("/dashboard");

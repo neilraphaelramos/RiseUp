@@ -1,0 +1,75 @@
+.adn-container {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar article";
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+
+.adn-container header {
+    grid-area: header;
+    background-color: #88cfff;
+    padding: 1rem;
+}
+
+.adn-container aside {
+    grid-area: sidebar;
+    background-color: #e2f4ff;
+    padding: 1rem;
+}
+
+.adn-container article {
+    grid-area: article;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.adn-text {
+    margin: 0;
+}
+
+.logo-img {
+    width: 35px;
+    height: auto;
+    margin: 0;
+}
+
+.adn-selector-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.adn-gp-btn-select {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-select {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background-color: #c7d7e0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14pt;
+    color: #333;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-select:hover {
+    background-color: #acdefb;
+    color: #ffffff;
+}
+
+.btn-select.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.adn-icon-btn {
+    font-size: 15pt;
+}
