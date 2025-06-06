@@ -1,57 +1,50 @@
 import './settings.css';
 import { signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { authUser } from '../../../../backend/config/firebase';
+import { FaInfoCircle } from "react-icons/fa";
+import { LuUsers } from "react-icons/lu";
+import { CiLogout } from "react-icons/ci";
 
 function SettingAdmin() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleLogout = async () =>  {
-        try {
-            await signOut(authUser);
-            localStorage.removeItem('userRole');
-            navigate('/')
-        } catch (error) {
-          console.error('Logout failed', error.message);  
-        };
-    }
+  const handleLogout = async () => {
+    try {
+      await signOut(authUser);
+      localStorage.removeItem('userRole');
+      navigate('/')
+    } catch (error) {
+      console.error('Logout failed', error.message);
+    };
+  }
 
   return (
-    <div className="admin-settings">
-      <h2 className="settings-title">Admin Settings</h2>
-
-      <div className="settings-section">
-        <h3>Profile Info</h3>
-        <div className="settings-item">
-          <label>Full Name:</label>
-          <input type="text" placeholder="Enter full name" />
+    <div className='adn-main-setting-container'>
+      <div className="admin-settings">
+        <h2 className="settings-title">Admin Settings</h2>
+        <div className='adn-setting-layout'>
+          <div className='adn-sidebar-setting'>
+            <div className='adn-setting-group-btn'>
+              <div className='adn-btn'>
+                <FaInfoCircle className='adn-setting-icon' /> Account Info
+              </div>
+            </div>
+            <div className='adn-setting-group-btn'>
+              <div className='adn-btn'>
+                <LuUsers className='adn-setting-icon' /> Account Management
+              </div>
+            </div>
+            <div className="adn-setting-group-btn">
+              <div className='adn-btn' onClick={handleLogout}>
+                <CiLogout className='adn-setting-icon' /> Logout
+              </div>
+            </div>
+          </div>
+          <div className='adn-setting-display'>
+            <Outlet />
+          </div>
         </div>
-        <div className="settings-item">
-          <label>Email:</label>
-          <input type="email" placeholder="Enter email" />
-        </div>
-      </div>
-
-      <div className="settings-section">
-        <h3>Change Password</h3>
-        <div className="settings-item">
-          <label>Current Password:</label>
-          <input type="password" />
-        </div>
-        <div className="settings-item">
-          <label>New Password:</label>
-          <input type="password" />
-        </div>
-        <div className="settings-item">
-          <label>Confirm New Password:</label>
-          <input type="password" />
-        </div>
-        <button className="settings-btn">Update Password</button>
-      </div>
-
-      <div className="settings-section">
-        <h3>Other</h3>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );
