@@ -27,6 +27,8 @@ import ReflectionManagement from './component/admin/pages/reflectmanage/reflecti
 import ActivityManagement from './component/admin/pages/activitymanage/activity-management';
 import SettingAdmin from './component/admin/settings/settingadmin';
 import Viewer_Reflect from './component/admin/pages/reflectmanage/view_reflection/viewer_reflect';
+import Acc_Manage from './component/admin/settings/acoount_management/acc_manage';
+import Acc_Info from './component/admin/settings/account_info/acc_into';
 
 //import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
 
@@ -86,6 +88,20 @@ const router = createBrowserRouter([
       {
         path: 'settings',
         element: <SettingAdmin />,
+        children: [
+          {
+            index: true,
+            element: <Acc_Info />,
+          },
+          {
+            path: 'account-info',
+            element: <Acc_Info />,
+          },
+          {
+            path: 'account-management',
+            element: <Acc_Manage />,
+          },
+        ],
       },
     ]
   },

@@ -26,12 +26,12 @@ function SettingAdmin() {
         <div className='adn-setting-layout'>
           <div className='adn-sidebar-setting'>
             <div className='adn-setting-group-btn'>
-              <div className='adn-btn'>
+              <div className='adn-btn' onClick={() => navigate('/admin-dashboard/settings/account-info')}>
                 <FaInfoCircle className='adn-setting-icon' /> Account Info
               </div>
             </div>
             <div className='adn-setting-group-btn'>
-              <div className='adn-btn'>
+              <div className='adn-btn' onClick={() => navigate('/admin-dashboard/settings/account-management')}>
                 <LuUsers className='adn-setting-icon' /> Account Management
               </div>
             </div>

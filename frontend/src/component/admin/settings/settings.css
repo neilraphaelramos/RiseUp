@@ -55,4 +55,5 @@
 
 .adn-setting-display {
   background-color: #efefef;
+  overflow-y: auto;
 }

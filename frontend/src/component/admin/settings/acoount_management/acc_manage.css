@@ -1,0 +1,65 @@
+.acc-manage-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.admin-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.admin-form input {
+  padding: 0.5rem;
+  flex: 1 1 200px;
+}
+
+.admin-form button {
+  padding: 0.5rem 1rem;
+}
+
+.edit-mode {
+  background: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 2rem;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #f3f3f3;
+}
+
+.adn-setting-btn {
+    width: 80px;
+    height: 28px;
+    margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .admin-form {
+    flex-direction: column;
+  }
+
+  .admin-form input,
+  .admin-form button {
+    width: 100%;
+  }
+
+  .admin-table {
+    font-size: 0.9rem;
+  }
+}
