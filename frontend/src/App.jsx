@@ -24,7 +24,6 @@ import DashboardAdmin from './component/admin/dashboardadmin';
 import InfoStatus from './component/admin/pages/infointro';
 import UserManagement from './component/admin/pages/usermanage/user-management';
 import ReflectionManagement from './component/admin/pages/reflectmanage/reflection-management';
-import ActivityManagement from './component/admin/pages/activitymanage/activity-management';
 import SettingAdmin from './component/admin/settings/settingadmin';
 import Viewer_Reflect from './component/admin/pages/reflectmanage/view_reflection/viewer_reflect';
 import Acc_Manage from './component/admin/settings/acoount_management/acc_manage';
@@ -80,10 +79,6 @@ const router = createBrowserRouter([
       {
         path: 'reflection-manager/reflection-viewer/:id',
         element: <Viewer_Reflect />,
-      },
-      {
-        path: 'activity-manager',
-        element: <ActivityManagement />,
       },
       {
         path: 'settings',

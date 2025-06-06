@@ -159,7 +159,7 @@ function InfoStatus() {
                             </ResponsiveContainer>
                         </div>
                     </div>
-                    <div className='adn-activity-manager-data' onClick={() => navigate('/admin-dashboard/activity-manager')}>
+                    <div className='adn-activity-manager-data'>
                         <h1 className='adn-title-activity'>Activities for Today</h1>
                         <div className='adn-activity-display-count-system'>
                             <ResponsiveContainer>

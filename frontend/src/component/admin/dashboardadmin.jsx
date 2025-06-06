@@ -49,11 +49,6 @@ function DashboardAdmin() {
                                 <IoNewspaperSharp className='adn-icon-btn' /> Reflection Management
                             </div>
                         </div>
-                        <div className='adn-gp-btn-select' onClick={() => navigate('/admin-dashboard/activity-manager')}>
-                            <div className='btn-select'>
-                                <FiActivity className='adn-icon-btn' /> Actvity Management
-                            </div>
-                        </div>
                         <div className='adn-gp-btn-select' onClick={() => navigate('/admin-dashboard/settings')}>
                             <div className='btn-select'>
                                 <IoIosSettings className='adn-icon-btn' /> Settings
