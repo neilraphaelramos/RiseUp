@@ -16,28 +16,53 @@
 
 .adn-box-data {
   flex: 1 1 250px;
-  background-color: #e9e9e9;
-  border-radius: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
-  text-align: center;
+  cursor: pointer;
 }
 
 .adn-box-data:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+}
+
+.adn-icon-container {
+  width: 48px;
+  height: 48px;
+  background-color: #e0f7fa; /* Light blue */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adn-icon-container svg {
+  color: #00bcd4;
+  font-size: 24px;
+}
+
+.adn-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .adn-title-info {
   font-size: 16px;
-  color: #777;
-  margin-bottom: 4px;
+  color: #666666;
+  margin: 0;
 }
 
 .adn-number-info {
-  font-size: 25px;
+  font-size: 24px;
   font-weight: bold;
-  color: #333;
+  margin: 4px 0 0 0;
+  color: #333333;
 }
 
 @media (max-width: 768px) {

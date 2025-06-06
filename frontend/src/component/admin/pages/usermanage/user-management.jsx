@@ -6,6 +6,8 @@ import { FaUsers } from "react-icons/fa6";
 
 function UserManagement() {
     const [users, setUsers] = useState([]);
+    const [filteredUsers, setFilteredUsers] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -14,7 +16,9 @@ function UserManagement() {
                 const usersData = querySnapshot.docs
                     .map(doc => ({ id: doc.id, ...doc.data() }))
                     .filter(user => user.role === 'client');
+
                 setUsers(usersData);
+                setFilteredUsers(usersData);
             } catch (err) {
                 console.error('Error fetching users:', err);
             }
@@ -22,13 +26,41 @@ function UserManagement() {
 
         fetchUsers();
     }, []);
+
+    const handleSearch = () => {
+        const query = searchQuery.toLowerCase();
+        const filtered = users.filter(user =>
+            user.fullname?.toLowerCase().includes(query) ||
+            user.username?.toLowerCase().includes(query) ||
+            user.sectionYear?.toLowerCase().includes(query)
+        );
+        setFilteredUsers(filtered);
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     return (
         <div className="adn-user-management">
-            <h2 className="adn-user-management-title"><FaUsers className='adn-icon-title-btn'/> User Management</h2>
+            <h2 className="adn-user-management-title">
+                <FaUsers className='adn-icon-title-btn' /> User Management
+            </h2>
+             <input
+                type="text"
+                placeholder="Search by Full Name, Username, or Section & Year"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="adn-search-input"
+            />
             <div className="adn-table-wrapper">
                 <table className="adn-user-table">
                     <thead>
                         <tr>
+            
                             <th>UID</th>
                             <th>Full Name</th>
                             <th>Email</th>
@@ -41,7 +73,7 @@ function UserManagement() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user => (
+                        {filteredUsers.map((user) => (
                             <tr key={user.id}>
                                 <td>{user.id}</td>
                                 <td>{user.fullname || 'N/A'}</td>

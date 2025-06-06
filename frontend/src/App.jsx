@@ -26,6 +26,7 @@ import UserManagement from './component/admin/pages/usermanage/user-management';
 import ReflectionManagement from './component/admin/pages/reflectmanage/reflection-management';
 import ActivityManagement from './component/admin/pages/activitymanage/activity-management';
 import SettingAdmin from './component/admin/settings/settingadmin';
+import Viewer_Reflect from './component/admin/pages/reflectmanage/view_reflection/viewer_reflect';
 
 //import Video_GC from './component/pages/content/God-Centered-Video/video_GC';
 
@@ -63,23 +64,27 @@ const router = createBrowserRouter([
     element: <DashboardAdmin />,
     children: [
       {
-        path: '/admin-dashboard',
+        index: true,
         element: <InfoStatus />,
       },
       {
-        path: '/admin-dashboard/user-manager',
+        path: 'user-manager',
         element: <UserManagement />,
       },
       {
-        path: '/admin-dashboard/reflection-manager',
+        path: 'reflection-manager',
         element: <ReflectionManagement />,
       },
       {
-        path: '/admin-dashboard/activity-manager',
+        path: 'reflection-manager/reflection-viewer/:id',
+        element: <Viewer_Reflect />,
+      },
+      {
+        path: 'activity-manager',
         element: <ActivityManagement />,
       },
       {
-        path: '/admin-dashboard/settings',
+        path: 'settings',
         element: <SettingAdmin />,
       },
     ]

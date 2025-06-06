@@ -32,6 +32,10 @@
     background-color: #f4f4f4;
 }
 
+.adn-user-table td {
+    background-color: #ebebf4;
+}
+
 .adn-delete-btn {
     background-color: #e74c3c;
     color: white;
@@ -70,6 +74,16 @@
 .adn-icon-title-btn {
     font-size: 20pt;
     padding-right: 10px;
+}
+
+.adn-search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  margin: 12px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {

@@ -22,7 +22,7 @@
 
 .adn-container article {
     grid-area: article;
-    background-color: #fff;
+    background-color: #dee3ea;
     padding: 1rem;
     overflow: auto;
 }
