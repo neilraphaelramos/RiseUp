@@ -30,7 +30,8 @@ function InfoStatus() {
         const activityRef = collection(db, 'daily_activities');
 
         const unsubscribeAll = onSnapshot(usersRef, (snapshot) => {
-            setTotalUsers(snapshot.size);
+            const clientCount = snapshot.docs.filter(doc => doc.data().role === 'client').length;
+            setTotalUsers(clientCount);
         });
 
         const unsubscribeTotalReflectionSubmitted = onSnapshot(reflectionRef, (snapshot) => {
