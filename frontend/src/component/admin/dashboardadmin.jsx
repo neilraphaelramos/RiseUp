@@ -28,7 +28,7 @@ function DashboardAdmin() {
                 <header>
                     <div className='sub-header-container'>
                         <h1 className='adn-text'>
-                            RISE<img src={crosslogo} className="logo-img" alt="logo" />UP
+                            RISE<img src={crosslogo} className="logo-img" alt="logo" />UP - ADMIN
                         </h1>
                     </div>
                 </header>

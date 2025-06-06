@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import './info-design.css';
 import { db } from '../../../../backend/config/firebase';
-import { collection, onSnapshot, query, where, limit, orderBy} from 'firebase/firestore';
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { collection, onSnapshot, query, where, limit, orderBy } from 'firebase/firestore';
+import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Bar, ResponsiveContainer, BarChart } from 'recharts';
 import { useNavigate } from 'react-router-dom';
 import { FaUsers, FaUserCheck } from "react-icons/fa";
 import { RiFilePaper2Fill } from "react-icons/ri";
@@ -17,6 +17,12 @@ function InfoStatus() {
     const [totalUsers, setTotalUsers] = useState(0);
     const [activeUsers, setActiveUsers] = useState(0);
     const [tSubmitReflection, setTSubmitReflection] = useState(0);
+    const [ttActivity, setTTActivity] = useState(0);
+
+    useEffect(() => {
+        const total_activity = (totalUsers || 0) + (activeUsers || 0) + (tSubmitReflection || 0);
+        setTTActivity(total_activity);
+    }, [totalUsers, activeUsers, tSubmitReflection]);
 
     useEffect(() => {
         const usersRef = collection(db, 'users_info');
@@ -104,54 +110,113 @@ function InfoStatus() {
                             </div>
                             <div className="adn-text-container">
                                 <p className="adn-title-info">Activities Today</p>
-                                <p className="adn-number-info">350</p>
+                                <p className="adn-number-info">{ttActivity}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='adn-status-report-data'>
-                    <p className='adn-title-text'>Recent Reflection</p>
-                    <table className='adm-table-reflection' onClick={() => navigate('/admin-dashboard/reflection-manager')}>
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Title</th>
-                                <th>Student Name</th>
-                                <th>Year & Section</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {reflections.length > 0 ? (
-                                reflections.map((ref, index) => (
-                                    <tr key={ref.id}>
-                                        <td style={{ textAlign: 'center' }}>{index + 1}</td>
-                                        <td>{ref.title || '-'}</td>
-                                        <td>{ref.name || '-'}</td>
-                                        <td>{ref.year_section || '-'}</td>
-                                        <td>{ref.date ? new Date(ref.date.seconds * 1000).toLocaleDateString() : '-'}</td>
-                                    </tr>
-                                ))
-                            ) : (
+                <div className='adn-grid-layout'>
+                    <div className='adn-status-report-data'>
+                        <p className='adn-title-text'>Recent Reflection</p>
+                        <table className='adm-table-reflection' onClick={() => navigate('/admin-dashboard/reflection-manager')}>
+                            <thead>
                                 <tr>
-                                    <td colSpan="5" style={{ textAlign: 'center' }}>No reflections found.</td>
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Student Name</th>
+                                    <th>Year & Section</th>
+                                    <th>Date</th>
                                 </tr>
-                            )}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {reflections.length > 0 ? (
+                                    reflections.map((ref, index) => (
+                                        <tr key={ref.id}>
+                                            <td style={{ textAlign: 'center' }}>{index + 1}</td>
+                                            <td>{ref.title || '-'}</td>
+                                            <td>{ref.name || '-'}</td>
+                                            <td>{ref.year_section || '-'}</td>
+                                            <td>{ref.date ? new Date(ref.date.seconds * 1000).toLocaleDateString() : '-'}</td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="5" style={{ textAlign: 'center' }}>No reflections found.</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
 
-                    <div className='adn-graph-report-DA' style={{ width: '100%', height: 300, marginTop: 40 }}>
-                        <ResponsiveContainer>
-                            <LineChart data={dailyActivityData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="date" />
-                                <YAxis />
-                                <Tooltip />
-                                <Line type="monotone" dataKey="activities" stroke="#8884d8" activeDot={{ r: 8 }} />
-                            </LineChart>
-                        </ResponsiveContainer>
+                        <div className='adn-graph-report-DA' style={{ width: '100%', height: 300, marginTop: 40 }}>
+                            <ResponsiveContainer>
+                                <LineChart data={dailyActivityData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="date" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Line type="monotone" dataKey="activities" stroke="#8884d8" activeDot={{ r: 8 }} />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
+                    <div className='adn-activity-manager-data' onClick={() => navigate('/admin-dashboard/activity-manager')}>
+                        <h1 className='adn-title-activity'>Activities for Today</h1>
+                        <div className='adn-activity-display-count-system'>
+                            <ResponsiveContainer>
+                                <BarChart
+                                    data={[
+                                        { name: 'Registered Users', count: totalUsers },
+                                        { name: 'Active Users', count: activeUsers },
+                                        { name: 'Reflections Submitted', count: tSubmitReflection },
+                                    ]}
+                                    margin={{ top: -10, right: 30, left: 0, bottom: 5 }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" />
+                                    <YAxis allowDecimals={false} />
+                                    <Tooltip />
+                                    <Bar dataKey="count" fill="#82ca9d" />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+
+                        <div className='adn-activity-data'>
+                            <div className='adn-graph-count' style={{ width: 150, height: 200 }}>
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <BarChart data={[{ name: 'Reflection', count: tSubmitReflection }]}>
+                                        <XAxis dataKey="name" />
+                                        <YAxis allowDecimals={false} />
+                                        <Tooltip />
+                                        <Bar dataKey="count" fill="#8884d8" />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+
+                            <div className='adn-graph-count' style={{ width: 150, height: 200 }}>
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <BarChart data={[{ name: 'Active User', count: activeUsers }]}>
+                                        <XAxis dataKey="name" />
+                                        <YAxis allowDecimals={false} />
+                                        <Tooltip />
+                                        <Bar dataKey="count" fill="#82ca9d" />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+
+                            <div className='adn-graph-count' style={{ width: 150, height: 200 }}>
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <BarChart data={[{ name: 'Registered', count: totalUsers }]}>
+                                        <XAxis dataKey="name" />
+                                        <YAxis allowDecimals={false} />
+                                        <Tooltip />
+                                        <Bar dataKey="count" fill="#ffc658" />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </>
     )

@@ -183,3 +183,72 @@
     font-size: 0.8rem;
   }
 }
+
+.adn-activity-display-count-system {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 10px;
+  height: 300px;
+}
+
+.adn-graph-bar-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgb(0 0 0 / 0.1);
+  padding: 20px;
+}
+
+.adn-graph-count {
+  margin: 10px;
+  padding-top: 10px;
+  border-radius: 10px;
+}
+
+.adn-activity-data {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .adn-graph-bar-container {
+    padding: 10px;
+  }
+  
+  .adn-activity-manager-data {
+    max-width: 100%;
+    margin: 20px 0;
+    padding: 0 5px;
+  }
+  
+  /* Rotate XAxis labels less for smaller screens */
+  .recharts-x-axis-tick tspan {
+    font-size: 12px !important;
+  }
+}
+
+.adn-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.adn-activity-manager-data {
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.adn-title-activity {
+  margin: 0;
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 24pt;
+}
+
